@@ -2,6 +2,7 @@ import './App.css'
 import CompanyLogo from './components/CompanyLogo'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Navbar/>
         <Hero/>
         <CompanyLogo/>
+        <Footer/>
       </div>
     </main>
   )
