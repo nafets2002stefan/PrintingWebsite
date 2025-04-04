@@ -1,5 +1,4 @@
 import React from 'react'
-import { BiCategory } from 'react-icons/bi';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
