@@ -89,7 +89,7 @@ const Products = () => {
             {/* Heading Texts */}
             <HeadingText servicesTexts={productsTexts}/>
             {/* Products boxes */}
-            <BoxComponent component={products}/>
+            <BoxComponent components={products}/>
             {/* Envelope component */}
             <Envelope/>
             

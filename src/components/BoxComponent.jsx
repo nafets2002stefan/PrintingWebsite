@@ -1,9 +1,9 @@
 import React from 'react'
 
-function BoxComponent({component}) {
+function BoxComponent({components}) {
   return (
     <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
-        {component.map((service, index) => (
+        {components.map((service, index) => (
             <div key={index} className='flex flex-col items-center p-1 text-center'>
                 <div className='group w-full h-62 sm:h-72 md:h-64'>
                     <div className='relative  h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]'>
