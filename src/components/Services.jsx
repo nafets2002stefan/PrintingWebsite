@@ -89,7 +89,7 @@ function Services() {
             {/* Heading Texts */}
             <HeadingText servicesTexts={servicesTexts}/>
             {/* Services boxes */}
-            <BoxComponent component={services}/>
+            <BoxComponent components={services}/>
             {/* Envelope component */}
             <Envelope/>
         </div>
