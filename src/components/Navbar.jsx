@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
 
     const navLinks = [
         { label: "Home", href: "/" },
