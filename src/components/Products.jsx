@@ -12,6 +12,7 @@ import carteImage from '../assets/products-images/carte.png'
 import ImageBanner from './ImageBanner'
 import HeadingText from './HeadingText'
 import BoxComponent from './BoxComponent'
+import Envelope from './Envelope'
 
 const products = [
     {
@@ -89,8 +90,10 @@ const Products = () => {
             <HeadingText servicesTexts={productsTexts}/>
             {/* Products boxes */}
             <BoxComponent component={products}/>
+            {/* Envelope component */}
+            <Envelope/>
+            
         </div>
-
     </section>
   )
 }
