@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-
-    const [activeLink, setActiveLink] = useState("#home");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navLinks = [
-        { label: "Home", href: "#home" },
-        { label: "About", href: "#about" },
-        { label: "Our Services", href: "#services" },
-        { label: "Testimonials", href: "#testimonials" }
+        { label: "Home", href: "/" },
+        { label: "About", href: "/about" },
+        { label: "Services", href: "/services" },
+        { label: "Testimonials", href: "/testimonials" }
     ];
 
 
@@ -40,22 +39,21 @@ const Navbar = () => {
                 <div className='hidden md:flex gap-10 items-center'>
                     {
                         navLinks.map((link, index) => (
-                            <a key={index} href={link.href}
-                                onClick={() => setActiveLink(link.href)}
+                            <Link key={index} to={link.href}
                                 className={`text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 
-                                after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all ${activeLink === link.href ? 'text-blue-600 after:w-full' : 'text-gray-600 hover:text-gray-900'}`}
+                                after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all ${location.pathname === link.href ? 'text-blue-600 after:w-full' : 'text-gray-600 hover:text-gray-900'}`}
                             >
                                 {link.label}
-                            </a>
+                            </Link>
                         ))
                     }
                 </div>
 
                 {/* Get in touch button */}
                 <button className='hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
-                    <a href='#newsletter'>
+                    <Link to='/contacts'>
                         Get in touch
-                    </a>
+                    </Link>
                 </button>
 
             </div>
@@ -66,20 +64,17 @@ const Navbar = () => {
                     <div className='md:hidden bg-white border-t border-gray-100 py-4'>
                         <div className='container mx-auto px-4 space-y-3'>
                             {navLinks.map((link, index) => (
-                                <a key={index} href={link.href}
-                                    onClick={() => {
-                                        setActiveLink(link.href);
-                                        setIsMenuOpen(false);
-                                    }}
-                                    className={`block text-sm font-medium py-2 ${activeLink === link.href ? "text-blue-600" : "text-gray-600 hover:text-gray-900"}`}>
+                                <Link key={index} to={link.href}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className={`block text-sm font-medium py-2 ${location.pathname === link.href ? "text-blue-600" : "text-gray-600 hover:text-gray-900"}`}>
                                     {link.label}
-                                </a>
+                                </Link>
                             ))}
 
                             <button className='w-full bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
-                                <a href='#newsletter'>
+                                <Link to='/contacts'>
                                     Get in touch
-                                </a>
+                                </Link>
                             </button>
                         </div>
                     </div>
