@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,6 +8,7 @@ const Navbar = () => {
     const navLinks = [
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
+        { label: "Products", href: "/products" },
         { label: "Services", href: "/services" },
         { label: "Testimonials", href: "/testimonials" }
     ];
