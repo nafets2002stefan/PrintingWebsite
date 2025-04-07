@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function BoxComponent({components}) {
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
   return (
     <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
         {components.map((service, index) => (
             <div key={index} className='flex flex-col items-center p-1 text-center'>
-                <div className='group w-full h-62 sm:h-72 md:h-64'>
-                    <div className='relative  h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]'>
+                <div className='group w-full h-62 sm:h-72 md:h-64' tabIndex="0"
+                    onFocus={() => setActiveIndex(index)}
+                    onBlur={() => setActiveIndex(null)}
+                    onMouseEnter={() => setActiveIndex(index)}
+                    onMouseLeave={() => setActiveIndex(null)}
+                >
+                    <div className={`relative  h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] ${activeIndex === index ? '[transform:rotateY(180deg)]' : ''}`}>
                         <div className='absolute inset-0'>
                             <img src={service.image} className="h-full w-full rounded-xl object-cover" alt="" />
                         </div>
