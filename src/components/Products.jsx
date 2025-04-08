@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import mainImage from '../assets/products-images/main.png'
 import albumImage from '../assets/products-images/album.png'
 import brosuraImage from '../assets/products-images/brosura.png'
@@ -81,10 +82,12 @@ const productsTexts = [
 ]
 
 const Products = () => {
+  const [t] = useTranslation('global');
+  
   return (
     <section className='mt-20'>
         {/* Image banner */}
-        <ImageBanner mainImage={mainImage} title="Produse"/>
+        <ImageBanner mainImage={mainImage} title={t('_products')}/>
         <div className='max-w-7xl mx-auto px-4 my-8'>
             {/* Heading Texts */}
             <HeadingText servicesTexts={productsTexts}/>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import mainImage from '../assets/services-images/main.png'
 import tiparireImage from '../assets/services-images/tiparire.png'
 import designGraficImage from '../assets/services-images/design-grafic.png'
@@ -81,10 +82,12 @@ const servicesTexts = [
 ]
 
 function Services() {
+  const [t] = useTranslation('global');
+
   return (
     <section className='mt-20'>
         {/* Image banner */}
-        <ImageBanner mainImage={mainImage} title="Servicii"/>
+        <ImageBanner mainImage={mainImage} title={t('_services')}/>
         <div className='max-w-7xl mx-auto px-4 my-8'>
             {/* Heading Texts */}
             <HeadingText servicesTexts={servicesTexts}/>
