@@ -9,8 +9,10 @@ import global_ru from './translations/ru/global.json'
 import i18next from 'i18next'
 import { I18nextProvider } from 'react-i18next'
 
+const storedLanguage = localStorage.getItem('language') || 'ro';
+
 i18next.init({
-  lng: 'en',
+  lng: storedLanguage,
   resources: {
     en: {
       global: global_en
