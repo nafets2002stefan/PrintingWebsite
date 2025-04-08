@@ -5,11 +5,11 @@ import { Outlet } from 'react-router-dom'
 
 function Layout() {
   return (
-    <>
-    <Navbar/>
-    <Outlet/>
-    <Footer/>
-    </>
+    <div className='overflow-x-hidden'>
+      <Navbar/>
+      <Outlet/>
+      <Footer/>
+    </div>
   )
 }
 
