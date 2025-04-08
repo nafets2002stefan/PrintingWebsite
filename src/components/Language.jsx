@@ -27,7 +27,7 @@ function Language() {
   return (
     <span>
       {languagesToShow.map((lang) => (
-        <button key={lang} className='text-gray-400 mr-4' onClick={() => changeLanguage(lang)}>
+        <button key={lang} className='text-gray-400 mr-4 hover:text-white transition-all' onClick={() => changeLanguage(lang)}>
           {lang === 'en' ? 'EN' : lang === 'ro' ? 'RO' : 'RU'}
         </button>
       ))}

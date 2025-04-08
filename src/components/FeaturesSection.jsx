@@ -74,20 +74,20 @@ const FeaturesSection = () => {
     <section className='max-w-7xl mx-auto px-4 py-16'>
         {/* Heading Texts */}
         <div className='text-center mb-12'>
-            <h2 className='text-3xl font-bold mb-4'>TIPOGRAFIA PERFECTĂ</h2>
-            <p className='text-l text-gray-600'>Tipografia Pergament este o companie de familie fondată în anul 1999.</p>
-            <p className='text-l text-gray-600'>Producem ambalaje din carton, materiale publicitare imprimate și ediții periodice de orice complexitate</p>
+            <h2 className='text-3xl font-bold mb-4 text-white'>TIPOGRAFIA PERFECTĂ</h2>
+            <p className='text-l default-link-color'>Tipografia Pergament este o companie de familie fondată în anul 1999.</p>
+            <p className='text-l default-link-color'>Producem ambalaje din carton, materiale publicitare imprimate și ediții periodice de orice complexitate</p>
         </div>
 
         {/* Features boxs */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
             {features.map((feature, index) => (
                 <div key={index} className='flex flex-col items-center p-6 pb-0 text-center'>
-                    <div className='w-24 h-24 rounded-full mb-6 flex items-center justify-center bg-gray-200 hover:bg-blue-600 hover:text-white transition-all duration-200'>
+                    <div className='w-24 h-24 rounded-full mb-6 flex items-center justify-center border-3 text-[#807f7d] hover:bg-[#ffe400] hover:text-black transition-all duration-200'>
                         <div className='text-4xl'>{feature.icon}</div>
                     </div>
-                    <h3 className='text-2xl font-medium mb-3'>{feature.title}</h3>
-                    <p className='text-gray-500 text-center'>{feature.description}</p>
+                    <h3 className='text-2xl font-medium mb-3 text-white'>{feature.title}</h3>
+                    <p className='default-link-color text-center'>{feature.description}</p>
                 </div>
             ))}
         </div>
