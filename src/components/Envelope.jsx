@@ -2,7 +2,7 @@ import React from 'react'
 
 function Envelope() {
   return (
-    <div className='flex flex-wrap justify-evenly gap-9 p-1 text-center ml-10'>
+    <div className='flex flex-wrap justify-evenly gap-9 p-1 text-center lg:ml-10'>
         <div className="h-[90px] w-[102px] bg-gray-300 flex items-center justify-center">102x90</div>
         <div className="h-[97px] w-[107px] bg-gray-300 flex items-center justify-center">107x97</div>
         <div className="h-[99px] w-[139px] bg-gray-300 flex items-center justify-center">139x99</div>

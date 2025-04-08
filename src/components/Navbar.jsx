@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { Link, useLocation } from 'react-router-dom';
+import Language from './Language';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
+    const [t] = useTranslation('global');
 
     const navLinks = [
-        { label: "Home", href: "/" },
-        { label: "Products", href: "/products" },
-        { label: "Services", href: "/services" },
-        { label: "Testimonials", href: "/testimonials" },
-        { label: "Contact Us", href: "/contacts" }
+        { label: t('_home'), href: "/" },
+        { label: t('_products'), href: "/products" },
+        { label: t('_services'), href: "/services" },
+        { label: t('_testimonials'), href: "/testimonials" },
+        { label: t('_contactUs'), href: "/contacts" }
     ];
-
 
     return (
         <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-gray-100 shadow-sm">
@@ -51,12 +53,16 @@ const Navbar = () => {
                     }
                 </div>
 
-                {/* Get in touch button */}
-                <button className='hidden md:block bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
-                    <Link to='/contacts'>
-                        Get in touch
-                    </Link>
-                </button>
+                <span className="flex items-center gap-5 hidden md:block">
+                    <Language />
+
+                    {/* Get in touch button */}
+                    <button className='bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
+                        <Link to='/contacts'>
+                            {t('_getInTouch')}
+                        </Link>
+                    </button>
+                </span>
 
             </div>
 
@@ -73,9 +79,13 @@ const Navbar = () => {
                                 </Link>
                             ))}
 
-                            <button className='w-full bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
+                            {/* Testez */}
+                            <Language />
+
+                            {/* Get in touch button */}
+                            <button className='w-full bg-blue-600 text-white px-6 my-3 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
                                 <Link to='/contacts'>
-                                    Get in touch
+                                    {t('_getInTouch')}
                                 </Link>
                             </button>
                         </div>
