@@ -18,14 +18,14 @@ function BoxComponent({components}) {
                         <div className='absolute inset-0'>
                             <img src={service.image} className="h-full w-full rounded-xl object-cover" alt="" />
                         </div>
-                        <div className="absolute inset-0 h-full w-full rounded-xl bg-black/50 px-12 text-center text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                        <div className="absolute inset-0 h-full w-full rounded-xl bg-[#131313] border-1 border-[#807f7d] px-12 text-center text-[#807f7d] [transform:rotateY(180deg)] [backface-visibility:hidden]">
                             <div className='flex min-h-full flex-col items-center justify-center'>
                                 <p className='text-xl font-medium'>{service.description}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <h3 className='text-3xl font-medium my-3'>{service.title}</h3>
+                <h3 className='text-3xl font-medium my-3 text-white'>{service.title}</h3>
             </div>
         ))}
     </div>

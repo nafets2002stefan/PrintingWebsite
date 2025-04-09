@@ -22,15 +22,10 @@ const Navbar = () => {
     return (
         <nav className="fixed top-0 left-0 right-0 default-bg backdrop-blur-sm z-50 shadow-sm">
             <div className="w-full max-w-7xl container mx-auto flex items-center justify-between px-4 md:h-30 h-25">
-                {/* Logo and Title */}
-                <div className="hidden md:flex items-center gap-1 cursor-pointer">
-                    <img src={mainImage} alt="" className='h-12 w-auto object-contain' />
-                </div>
-
                 {/* Mobile navbar*/}
                 <div className='md:hidden flex items-center justify-between w-full'>
 
-                    <button className='m-1 p-1 border-3 border-white rounded-xl text-white'
+                    <button className='m-1 p-1 border-3 border-white rounded-xl text-white '
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {
@@ -38,40 +33,38 @@ const Navbar = () => {
                         }
 
                     </button>
-                    <div className="items-center gap-1 cursor-pointer">
-                        <img src={mainImage} alt="" className='h-15 w-auto object-contain' />
+                    <div className="items-center gap-1 cursor-pointer flex-shrink-0 object-cover">
+                        <img src={mainImage} alt="" className='h-15 w-[108px] object-contain' />
                     </div>
                     <Language/>
                     
                 </div>
-
+                {/* Logo and Title */}
+                <div className="hidden md:flex items-center gap-1 cursor-pointer">
+                    <img src={mainImage} alt="" className='[@media(min-width:769px)]:w-[80px] h-15 [@media(min-width:841px)]:w-[108px] object-contain' />
+                </div>
 
                 {/* Desktop navitems */}
 
-                <div className='hidden md:flex gap-10 items-center'>
+                <div className='hidden md:flex gap-5 lg:gap-12 xl:gap-18 items-center whitespace-nowrap'>
                     {
                         navLinks.map((link, index) => (
                             <Link key={index} to={link.href}
-                                className={`text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 
-                                after:w-0 hover:after:w-full after:bg-white after:transition-all ${location.pathname === link.href ? 'text-white after:w-full' : 'text-[#807f7d] hover:text-white'}`}
+                                className={`text-m font-medium  [@media(min-width:769px)]:text-sm [@media(min-width:841px)]:text-base relative  ${location.pathname === link.href ? 'text-white' : 'text-[#807f7d] hover:text-white'}`}
                             >
                                 {link.label}
                             </Link>
                         ))
                     }
-                </div>
-
-                <span className="flex items-center gap-5 hidden md:block">
-                    <Language />
-
-                    {/* Get in touch button */}
-                    <button className='default-bg-button text-black px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
-                        <Link to='/contacts'>
-                            {t('_getInTouch')}
-                        </Link>
-                    </button>
-                </span>
-
+                    <Language/>
+                
+                        {/* Get in touch button */}
+                        <button className='hidden md:block default-bg-button text-black px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
+                            <Link to='/contacts'>
+                                {t('_getInTouch')}
+                            </Link>
+                        </button>
+                    </div>
             </div>
 
             {/* Mobile menu items */}
@@ -82,12 +75,10 @@ const Navbar = () => {
                             {navLinks.map((link, index) => (
                                 <Link key={index} to={link.href}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`block text-sm font-medium py-2 ${location.pathname === link.href ? "text-white" : "text-gray-400 hover:text-gray-300"}`}>
+                                    className={`block text-lg font-medium py-2 ${location.pathname === link.href ? "text-white" : "text-gray-400 hover:text-gray-300"}`}>
                                     {link.label}
                                 </Link>
                             ))}
-
-                            {/* Testez */}
 
                             {/* Get in touch button */}
                             <button className='w-full default-bg-button text-black px-6 my-3 py-2.5 rounded-lg text-sm font-medium'>

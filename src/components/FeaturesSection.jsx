@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { FaForward,FaUserCheck, FaBoxOpen, FaCogs, FaHeart, FaBalanceScaleLeft, FaPaintBrush , FaShippingFast } from "react-icons/fa";
 
 const features = [
@@ -70,6 +70,9 @@ const features = [
 
 
 const FeaturesSection = () => {
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
   return (
     <section className='max-w-7xl mx-auto px-4 py-16'>
         {/* Heading Texts */}
@@ -82,8 +85,12 @@ const FeaturesSection = () => {
         {/* Features boxs */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
             {features.map((feature, index) => (
-                <div key={index} className='flex flex-col items-center p-6 pb-0 text-center'>
-                    <div className='w-24 h-24 rounded-full mb-6 flex items-center justify-center border-3 text-[#807f7d] hover:bg-[#ffe400] hover:text-black transition-all duration-200'>
+                <div key={index} className='flex flex-col items-center p-6 pb-0 text-center'
+                    onFocus={() => setActiveIndex(index)}
+                    onBlur={() => setActiveIndex(null)}
+                    onMouseEnter={() => setActiveIndex(index)}
+                    onMouseLeave={() => setActiveIndex(null)}>
+                    <div className={`w-24 h-24 rounded-full mb-6 flex items-center justify-center border-3 text-[#807f7d] hover:bg-[#ffe400] hover:text-black transition-all duration-200 ${activeIndex === index ? 'text-black bg-[#ffe400]' : ''}`}>
                         <div className='text-4xl'>{feature.icon}</div>
                     </div>
                     <h3 className='text-2xl font-medium mb-3 text-white'>{feature.title}</h3>

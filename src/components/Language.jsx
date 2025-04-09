@@ -28,32 +28,42 @@ function Language() {
   const languagesToShow = getLanguagesToShow();
 
   return (
-    <div className="relative">
-      {/* Current selected language with a dropdown arrow */}
-      <button 
-        className='text-gray-400 hover:text-white flex items-center space-x-2 transition-all' 
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-      >
-        <span className='text-white'>{i18n.language.toUpperCase()}</span> 
-        {/* Show the current language */}
-        <HiChevronDown className={`transition-transform text-white ${isDropdownOpen ? 'rotate-180' : ''}`} />
-      </button>
+    <>
+      <span className='hidden md:block'>
+        {languagesToShow.map((lang) => (
+          <button key={lang} className='text-[#807f7d] mr-4' onClick={() => changeLanguage(lang)}>
+            {lang === 'en' ? 'EN' : lang === 'ro' ? 'RO' : 'RU'}
+          </button>
+        ))}
+      </span>
 
-      {/* Dropdown menu */}
-      {isDropdownOpen && (
-        <div className="absolute top-full left-[-10px] right-2 mt-2 bg-black border-1 border-[#807f7d] text-white rounded-lg shadow-lg w-15 py-2">
-          {languagesToShow.map((lang) => (
-            <button
-              key={lang}
-              className='block text-[#807f7d] hover:text-white focus:text-white px-4 py-2 w-full text-left transition-all'
-              onClick={() => changeLanguage(lang)}
-            >
-              {lang === 'en' ? 'EN' : lang === 'ro' ? 'RO' : 'RU'}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+      <div className="relative md:hidden">
+        {/* Current selected language with a dropdown arrow */}
+        <button 
+          className='hover:text-white flex items-center space-x-2 transition-all' 
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          <span className='text-white'>{i18n.language.toUpperCase()}</span> 
+          {/* Show the current language */}
+          <HiChevronDown className={`transition-transform text-white ${isDropdownOpen ? 'rotate-180' : ''}`} />
+        </button>
+
+        {/* Dropdown menu */}
+        {isDropdownOpen && (
+          <div className="absolute top-full left-[-10px] right-2 mt-2 bg-black border-1 border-[#807f7d] text-white rounded-lg shadow-lg w-15 py-2">
+            {languagesToShow.map((lang) => (
+              <button
+                key={lang}
+                className='block text-[#807f7d] hover:text-white focus:text-white px-4 py-2 w-full text-left transition-all'
+                onClick={() => changeLanguage(lang)}
+              >
+                {lang === 'en' ? 'EN' : lang === 'ro' ? 'RO' : 'RU'}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   )
 }
 

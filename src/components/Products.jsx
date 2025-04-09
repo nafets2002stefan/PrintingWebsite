@@ -85,7 +85,7 @@ const Products = () => {
   const [t] = useTranslation('global');
   
   return (
-    <section className='mt-20'>
+    <section className='mt-20 default-bg'>
         {/* Image banner */}
         <ImageBanner mainImage={mainImage} title={t('_products')}/>
         <div className='max-w-7xl mx-auto px-4 my-8'>
