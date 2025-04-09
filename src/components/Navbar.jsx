@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { HiX } from 'react-icons/hi';
+import { TbMenu } from "react-icons/tb";
 import { Link, useLocation } from 'react-router-dom';
-import mainImage from '../assets/main.png'
+import mainImage from '../assets/main.svg'
 import Language from './Language';
 
 const Navbar = () => {
@@ -22,20 +23,27 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 default-bg backdrop-blur-sm z-50 shadow-sm">
             <div className="w-full max-w-7xl container mx-auto flex items-center justify-between px-4 md:h-30 h-25">
                 {/* Logo and Title */}
-                <div className="flex items-center gap-1 cursor-pointer">
+                <div className="hidden md:flex items-center gap-1 cursor-pointer">
                     <img src={mainImage} alt="" className='h-12 w-auto object-contain' />
                 </div>
 
-                {/* Mobile menu button*/}
-                <button className='md:hidden p-2'
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                >
-                    {
-                        isMenuOpen ? <HiX className='size-6 text-white' /> : <HiMenu className='size-6 text-white' />
-                    }
+                {/* Mobile navbar*/}
+                <div className='md:hidden flex items-center justify-between w-full'>
 
-                </button>
+                    <button className='m-1 p-1 border-3 border-white rounded-xl text-white'
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        {
+                            isMenuOpen ? <HiX className='size-6 text-white' /> : <TbMenu className='size-6 text-white ' />
+                        }
 
+                    </button>
+                    <div className="items-center gap-1 cursor-pointer">
+                        <img src={mainImage} alt="" className='h-15 w-auto object-contain' />
+                    </div>
+                    <Language/>
+                    
+                </div>
 
 
                 {/* Desktop navitems */}
@@ -80,7 +88,6 @@ const Navbar = () => {
                             ))}
 
                             {/* Testez */}
-                            <Language />
 
                             {/* Get in touch button */}
                             <button className='w-full default-bg-button text-black px-6 my-3 py-2.5 rounded-lg text-sm font-medium'>
