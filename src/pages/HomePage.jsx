@@ -1,5 +1,6 @@
 import FeaturesSection from '../components/FeaturesSection'
 import Carousel from '../components/Carousel'
+import Testimonial from '../components/Testimonial'
 
 const HomePage = () => {
     return (
@@ -7,6 +8,7 @@ const HomePage = () => {
           <div className='overflow-hidden mt-30'>
               <Carousel autoSlide={true}/>
             <FeaturesSection/>
+            <Testimonial/>
           </div>
         </main>
       )
