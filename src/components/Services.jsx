@@ -85,10 +85,10 @@ function Services() {
   const [t] = useTranslation('global');
 
   return (
-    <section className='mt-20'>
-        {/* Image banner */}
-        <ImageBanner mainImage={mainImage} title={t('_services')}/>
+    <section className='mt-20 default-bg'>
         <div className='max-w-7xl mx-auto px-4 my-8'>
+            {/* Image banner */}
+            <ImageBanner mainImage={mainImage} title={t('_services')}/>
             {/* Heading Texts */}
             <HeadingText servicesTexts={servicesTexts}/>
             {/* Services boxes */}

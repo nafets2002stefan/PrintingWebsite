@@ -1,7 +1,20 @@
 @import "tailwindcss";
+@import '@fontsource/nunito';
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    font-family: 'Nunito', sans-serif;
 }
 
+.default-bg {
+    background-color: #131313;
+}
+
+.default-bg-button {
+    background-color: #ffe400;
+}
+
+.default-link-color {
+    color: #807f7d;
+}
