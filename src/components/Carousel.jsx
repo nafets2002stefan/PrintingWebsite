@@ -70,7 +70,7 @@ const Carousel = ({
             <div className='flex transition-transform ease-out duration-500' style={{ transform: `translateX(-${curr * 100}%)` }}>
                 {slides.map((slide, index) => (
                     <div key={index} className="w-full flex-shrink-0 relative">
-                        <img src={slide.image} alt={`Slide ${index}`} className="w-full h-[180px] sm:h-[250px] md:h-[350px]  xl:h-[400px] object-cover" />
+                        <img src={slide.image} alt={`Slide ${index}`} className="w-full h-80 object-cover" />
                         <div className="absolute inset-0 bg-black opacity-60"></div>
                         <div className='absolute inset-0 flex items-center justify-center text-white text-[25px] [@media(min-width:470px)]:text-[30px] [@media(min-width:541px)]:text-[35px] md:text-[40px] font-semibold'>{slide.text}</div>
                     </div>
