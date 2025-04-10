@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useInView } from 'react-intersection-observer';
 
 function BoxComponent({components}) {
 
@@ -12,6 +13,7 @@ function BoxComponent({components}) {
                     onFocus={() => setActiveIndex(index)}
                     onBlur={() => setActiveIndex(null)}
                     onMouseEnter={() => setActiveIndex(index)}
+                    onTouchMove={() => setActiveIndex(index)}
                     onMouseLeave={() => setActiveIndex(null)}
                 >
                     <div className={`relative  h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] ${activeIndex === index ? '[transform:rotateY(180deg)]' : ''}`}>
