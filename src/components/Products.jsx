@@ -86,9 +86,9 @@ const Products = () => {
   
   return (
     <section className='mt-20 default-bg'>
-        {/* Image banner */}
-        <ImageBanner mainImage={mainImage} title={t('_products')}/>
         <div className='max-w-7xl mx-auto px-4 my-8'>
+            {/* Image banner */}
+            <ImageBanner mainImage={mainImage} title={t('_products')}/>
             {/* Heading Texts */}
             <HeadingText servicesTexts={productsTexts}/>
             {/* Products boxes */}

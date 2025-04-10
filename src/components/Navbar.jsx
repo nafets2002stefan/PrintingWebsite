@@ -59,7 +59,7 @@ const Navbar = () => {
                     <Language/>
                 
                         {/* Get in touch button */}
-                        <button className='hidden md:block default-bg-button text-black px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100'>
+                        <button className='hidden md:block default-bg-button text-black px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100 [@media(min-width:769px)]:text-sm [@media(min-width:841px)]:text-base'>
                             <Link to='/contacts'>
                                 {t('_getInTouch')}
                             </Link>

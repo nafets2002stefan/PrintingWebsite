@@ -31,7 +31,7 @@ function Language() {
     <>
       <span className='hidden md:block'>
         {languagesToShow.map((lang) => (
-          <button key={lang} className='text-[#807f7d] mr-4' onClick={() => changeLanguage(lang)}>
+          <button key={lang} className='text-[#807f7d] mr-4 [@media(min-width:769px)]:text-sm [@media(min-width:841px)]:text-base' onClick={() => changeLanguage(lang)}>
             {lang === 'en' ? 'EN' : lang === 'ro' ? 'RO' : 'RU'}
           </button>
         ))}
