@@ -18,7 +18,7 @@ const FeaturesSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const headingInView = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.2,
   });
 
