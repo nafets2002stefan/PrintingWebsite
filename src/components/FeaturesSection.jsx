@@ -1,85 +1,87 @@
 import React, {useState} from 'react'
+import { useTranslation } from 'react-i18next';
 import { FaForward,FaUserCheck, FaBoxOpen, FaCogs, FaHeart, FaBalanceScaleLeft, FaPaintBrush , FaShippingFast } from "react-icons/fa";
-
-const features = [
-    {
-      icon: <FaForward/>, 
-      title: "Viteză înaltă de producție",
-      description: (
-        <>
-        Listă electronică a ordinii comenzilor <br/> Prelucrarea automatizată a comenzii <br/> Realizarea produselor - de la 30 de minute
-        </>)
-    },
-    {
-      icon: <FaUserCheck/>,
-      title: "Echipă profesionistă", 
-      description: (
-        <>
-        Primim sarcina și vă oferim soluția <br/> Executarea comenzilor la timp <br/> Realizarea oricărei idei
-        </>)    
-    },
-    {
-      icon: <FaBoxOpen/>,
-      title: "Carton de legătorie",
-      description: (
-        <>
-        Producem cutii de înaltă calitate din carton de legătorie
-        </>)  
-    },
-    {
-      icon: <FaCogs/>,
-      title: "Productie proprie",
-      description: (
-        <>
-        Lucrări diferite de post-press <br/> Realizarea a oricărei idei <br/> Utilaj modern
-        </>) 
-    },
-    {
-      icon: <FaHeart/>,
-      title: "Atmosferă prietenoasă",
-      description: (
-        <>
-        Atmosferă de lucru veselă și pozitivă <br/> Showroom pentru inspirația dvs. <br/> Pisica preferată Monya
-        </>) 
-      },
-    {
-      icon: <FaBalanceScaleLeft/>,
-      title: "Prețul și calitatea",
-      description: (
-        <>
-        Garanția calității produselor de 100% <br/> Cele mai favorabile condiții de plată <br/> Produse de clasa „Premium”
-        </>) 
-    },
-    {
-      icon: <FaPaintBrush/>,
-      title: "Elaborarea design-ului",
-      description: (
-        <>
-        Soluții originale și particularizate <br/> Crearea construcțiilor complexe <br/> Design atractiv și efectiv
-        </>) 
-      },
-      {
-      icon: <FaShippingFast/>,
-      title: "Livrare",
-      description: (
-        <>
-        Economisirea resurselor dvs.<br/> Livrarea oricăror produse în raza mun. Chișinău <br/> Operativitate
-        </>) 
-      }
-  ]
 
 
 const FeaturesSection = () => {
 
+  const [t] = useTranslation('global');
   const [activeIndex, setActiveIndex] = useState(null);
+  const features = [
+    {
+      icon: <FaForward/>, 
+      title: t('_featuringSpeed'),
+      description: (
+        <>
+        {t('_featuringSpeed1')} <br/> {t('_featuringSpeed2')} <br/> {t('_featuringSpeed3')}
+        </>)
+    },
+    {
+      icon: <FaUserCheck/>,
+      title: t('_featuringTeam'), 
+      description: (
+        <>
+        {t('_featuringTeam1')} <br/> {t('_featuringTeam2')} <br/> {t('_featuringTeam3')}
+        </>)    
+    },
+    {
+      icon: <FaBoxOpen/>,
+      title: t('_featuringBox'),
+      description: (
+        <>
+        {t('_featuringBox1')}
+        </>)  
+    },
+    {
+      icon: <FaCogs/>,
+      title: t('_featuringProduction'),
+      description: (
+        <>
+        {t('_featuringProduction1')} <br/> {t('_featuringProduction2')} <br/> {t('_featuringProduction3')}
+        </>) 
+    },
+    {
+      icon: <FaHeart/>,
+      title: t('_featuringAtmosphere'),
+      description: (
+        <>
+        {t('_featuringAtmosphere1')} <br/> {t('_featuringAtmosphere2')}
+        </>) 
+      },
+    {
+      icon: <FaBalanceScaleLeft/>,
+      title: t('_featuringPrice'),
+      description: (
+        <>
+        {t('_featuringPrice1')} <br/> {t('_featuringPrice2')} <br/> {t('_featuringPrice3')}
+        </>) 
+    },
+    {
+      icon: <FaPaintBrush/>,
+      title: t('_featuringDesign'),
+      description: (
+        <>
+        {t('_featuringDesign1')} <br/> {t('_featuringDesign2')}  <br/> {t('_featuringDesign1')} 
+        </>) 
+      },
+      {
+      icon: <FaShippingFast/>,
+      title: t('_featuringShipping'),
+      description: (
+        <>
+        {t('_featuringShipping1')}<br/> {t('_featuringShipping2')} <br/> {t('_featuringShipping3')}
+        </>) 
+      }
+  ]
 
   return (
     <section className='max-w-7xl mx-auto px-4 py-16'>
         {/* Heading Texts */}
         <div className='text-center mb-12'>
-            <h2 className='text-3xl font-bold mb-4 text-white'>TIPOGRAFIA PERFECTĂ</h2>
-            <p className='text-l default-link-color'>Tipografia Pergament este o companie de familie fondată în anul 1999.</p>
-            <p className='text-l default-link-color'>Producem ambalaje din carton, materiale publicitare imprimate și ediții periodice de orice complexitate</p>
+            <h2 className='text-3xl font-bold mb-4 text-white'>{t('_featureHeading')}</h2>
+            <p className='text-l default-link-color'>{t('_featuringParagraph1')}</p>
+            <p className='text-l default-link-color'>{t('_featuringParagraph2')}</p>
+            <p className='text-l default-link-color'>{t('_featuringParagraph3')}</p>
         </div>
 
         {/* Features boxs */}
