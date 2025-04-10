@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiX } from 'react-icons/hi';
 import { TbMenu } from "react-icons/tb";
@@ -10,6 +10,36 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
     const [t] = useTranslation('global');
+
+
+    //test
+    const menuRef = useRef();
+    
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+    
+        const handleTouchStart = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+    
+        if (isMenuOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+            document.addEventListener("touchstart", handleTouchStart);
+        }
+    
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("touchstart", handleTouchStart);
+        };
+    }, [isMenuOpen]);
+    //test
 
     const navLinks = [
         { label: t('_home'), href: "/" },
@@ -70,7 +100,7 @@ const Navbar = () => {
             {/* Mobile menu items */}
             {
                 isMenuOpen && (
-                    <div className='md:hidden bg-black py-4'>
+                    <div  ref={menuRef} className='md:hidden bg-black py-4'>
                         <div className='container mx-auto px-4 space-y-3'>
                             {navLinks.map((link, index) => (
                                 <Link key={index} to={link.href}

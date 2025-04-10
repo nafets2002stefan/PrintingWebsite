@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState, useRef, useEffect} from 'react'
 import { useTranslation } from 'react-i18next';
 import { HiChevronDown } from 'react-icons/hi';
 
@@ -6,11 +6,36 @@ function Language() {
   const [t, i18n] = useTranslation('global');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const langRef = useRef();
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     localStorage.setItem('language', lng);
     setIsDropdownOpen(false);
   };
+
+  useEffect(() => {
+          const handleClickOutside = (event) => {
+              if (langRef.current && !langRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+              }
+          };
+      
+          const handleTouchStart = (event) => {
+              if (langRef.current && !langRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+              }
+          };
+          if (isDropdownOpen) {
+              document.addEventListener("mousedown", handleClickOutside);
+              document.addEventListener("touchstart", handleTouchStart);
+          }
+      
+          return () => {
+              document.removeEventListener("mousedown", handleClickOutside);
+              document.removeEventListener("touchstart", handleTouchStart);
+          };
+      }, [isDropdownOpen]);
 
   const getLanguagesToShow = () => {
     switch (i18n.language) {
@@ -37,7 +62,7 @@ function Language() {
         ))}
       </span>
 
-      <div className="relative md:hidden">
+      <div ref={langRef} className="relative md:hidden">
         {/* Current selected language with a dropdown arrow */}
         <button 
           className='hover:text-white flex items-center space-x-2 transition-all' 
