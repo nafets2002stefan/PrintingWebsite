@@ -38,8 +38,8 @@ function FAQ() {
                     {faq.question}
                     </button>
                     {activeIndex === index && (
-                        <HiX size={28} 
-                            className='text-white cursor-pointer'
+                        <HiX
+                            className='text-white cursor-pointer flex-shrink-0 size-6'
                             onClick={() => toggleAnswer(index)}
                         />
                     )}
