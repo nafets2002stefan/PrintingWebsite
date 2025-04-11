@@ -68,7 +68,7 @@ const Testimonial = () => {
         ref={headingInView.ref}
         initial={{ opacity: 0, y: 50 }}
         animate={headingInView.inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.2 }}
         className='text-center mb-12'
       >
         <h2 className='text-3xl font-bold mb-4 text-white'>{t('_featureHeading')}</h2>
@@ -90,7 +90,7 @@ const Testimonial = () => {
               ref={ref}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
               className='flex flex-col items-center p-6 text-center border-[#807f7d] md:border-1 rounded-2xl'
               onFocus={() => setActiveIndex(index)}
               onBlur={() => setActiveIndex(null)}
