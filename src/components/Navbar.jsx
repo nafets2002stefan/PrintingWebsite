@@ -40,7 +40,7 @@ const Navbar = () => {
         { label: t('_home'), href: "/" },
         { label: t('_products'), href: "/products" },
         { label: t('_services'), href: "/services" },
-        { label: t('_testimonials'), href: "/testimonials" },
+        { label: t('_FAQ'), href: "/questions" },
         { label: t('_contactUs'), href: "/contacts" }
     ];
 

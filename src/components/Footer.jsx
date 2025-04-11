@@ -13,7 +13,7 @@ const Footer = () => {
             { name: t('_home'), href: '/' },
             { name: t('_products'), href: '/products' },
             { name: t('_services'), href: '/services' },
-            { name: t('_testimonials'), href: '/testimonials' },
+            { name: t('_FAQ'), href: '/questions' },
             { name: t('_contactUs'), href: '/contacts' },
         ],
         [t('_contacts')] : [

@@ -3,7 +3,8 @@
     "_home": "Home",
     "_products": "Products",
     "_services": "Services",
-    "_testimonials": "Testimonials",
+    "_FAQ": "FAQ",
+    "_FAQLong": "Frequently Asked Questions",
     "_contactUs": "Contact Us",
 
     "_company": "Company",
@@ -56,6 +57,23 @@
     "_testimonialText7":"FlexPrint’s attention to detail is unmatched! The printed boxes they create for us are always of the highest quality. They consistently deliver on time and with exceptional service. We won’t work with anyone else!",
     "_testimonialText8":"FlexPrint has provided us with top-quality packaging for years. Their printed boxes are consistent in quality and design, and they always meet our deadlines. Their customer service team goes above and beyond, making every order a smooth experience.",
     "_testimonialText9":"Working with FlexPrint has been an absolute pleasure. Their printed boxes are sturdy and beautifully designed, and their team is incredibly easy to work with. Always quick, reliable, and professional. A top-tier printing company!",
+    
+    "_question1": "What does the abbreviation 'CMYK' stand for?",
+    "_question2": "What is the difference with a 'proprietary' form?",
+    "_question3": "Which type of finishing makes the image more saturated?",
+    "_question4": "Which type of binding is typically used for products with paper density over 200 g/m²: folding or creasing?",
+    "_question5": "What is the minimum time in which you can print an order?",
+    "_question6": "What determines the cost of producing a brochure?",
+    "_question7": "Do you have designers who can design the pages of a catalog?",
+  
+    "_answer1": "Cyan, Magenta, Yellow, blacK",
+    "_answer2": "Printing without changing the form (front and back on the same plate)",
+    "_answer3": "Glossy lamination or glossy UV coating",
+    "_answer4": "Creasing",
+    "_answer5": "It depends on the complexity of the order, technical parameters, the quantity you want, as well as the workload of the printing house at the time the order is received. The average offset printing time is 3–5 business days.",
+    "_answer6": "The price depends on color complexity, paper density, and quantity. The more copies, the lower the cost per unit of finished product.",
+    "_answer7": "Yes, FlexPrint offers advertising and printing design services provided the printing and production are done in our printing house.",
+
     "_accessibility": "Accesibility",
     "_fastReliable": "Fast & Reliable",
     "_premiumQuality": "Premium Quality",
