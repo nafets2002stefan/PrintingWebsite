@@ -39,7 +39,7 @@ function FAQ() {
                     </button>
                     {activeIndex === index && (
                         <HiX
-                            className='text-white cursor-pointer'
+                            className='text-white cursor-pointer flex-shrink-0 size-6'
                             onClick={() => toggleAnswer(index)}
                         />
                     )}
