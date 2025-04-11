@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
-import mainImage from '../assets/image1.png'
+import mainImage from '../assets/main.png'
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
