@@ -5,6 +5,7 @@ import ProductsPage from './pages/ProductsPage'
 import ServicesPage from './pages/ServicesPage'
 import Layout from './components/Layout'
 import ContactsPage from './pages/ContactsPage'
+import FAQPage from './pages/FAQPage'
 import { useEffect } from 'react'
           
 function ScrollToTopOnRouteChange() {
@@ -25,6 +26,7 @@ function App() {
           <Route path='/' element={<HomePage/>}/>
           <Route path='/products' element={<ProductsPage/>}/>
           <Route path='/services' element={<ServicesPage/>}/>
+          <Route path='/questions' element={<FAQPage/>}/>
           <Route path='/contacts' element={<ContactsPage/>}/>
         </Route>
       </Routes>
