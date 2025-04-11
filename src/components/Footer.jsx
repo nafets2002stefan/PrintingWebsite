@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
-import mainImage from '../assets/main.svg'
+import mainImage from '../assets/image1.png'
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -30,7 +30,7 @@ const Footer = () => {
                     <div className='lg:col-span-4'>
                         <div className='flex gap-1 items-center mb-6'>
                             <div className="flex items-center gap-1 cursor-pointer">
-                                <img src={mainImage} alt="" className='h-12 w-auto object-contain' />
+                                <img src={mainImage} alt="" className='h-7 w-auto object-contain' />
                             </div>
                         </div>
                         <p className='default-link-color font-semibold mb-6 md:w-3/4'>{t('_littleBlindTextWarning')}</p>

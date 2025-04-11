@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { HiX } from 'react-icons/hi';
 import { TbMenu } from "react-icons/tb";
 import { Link, useLocation } from 'react-router-dom';
-import mainImage from '../assets/main.svg';
+import mainImage from '../assets/main.png';
 import Language from './Language';
 
 const Navbar = () => {
@@ -59,14 +59,18 @@ const Navbar = () => {
                     </button>
 
                     <div className="items-center gap-1 cursor-pointer flex-shrink-0 object-cover">
-                        <img src={mainImage} alt="" className='h-15 w-[108px] object-contain' />
+                        <Link to='/'>
+                            <img src={mainImage} alt="" className='h-15 w-[108px] object-contain mb-2' />
+                        </Link>
                     </div>
                     <Language />
                 </div>
 
                 {/* Logo and Title */}
                 <div className="hidden md:flex items-center gap-1 cursor-pointer">
-                    <img src={mainImage} alt="" className='[@media(min-width:769px)]:w-[80px] h-15 [@media(min-width:841px)]:w-[108px] object-contain' />
+                    <Link to='/'>
+                        <img src={mainImage} alt="" className='[@media(min-width:769px)]:w-[90px] h-15 [@media(min-width:841px)]:w-[108px] object-contain mb-2' />
+                    </Link>
                 </div>
 
                 {/* Desktop nav items */}
@@ -107,11 +111,12 @@ const Navbar = () => {
                         ))}
 
                         {/* Get in touch button */}
+                        <Link to='/contacts'>
                         <button className='w-full default-bg-button text-black px-6 my-3 py-2.5 rounded-lg text-sm font-medium'>
-                            <Link to='/contacts'>
+                            
                                 {t('_getInTouch')}
-                            </Link>
                         </button>
+                        </Link>
                     </div>
                 </div>
             )}
