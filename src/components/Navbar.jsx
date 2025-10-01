@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiX } from 'react-icons/hi';
 import { TbMenu } from "react-icons/tb";
+import { FiPhone } from "react-icons/fi";
 import { Link, useLocation } from 'react-router-dom';
 import mainImage from '../assets/main.png';
 import Language from './Language';
@@ -63,7 +64,12 @@ const Navbar = () => {
                             <img src={mainImage} alt="" className='h-15 w-[108px] object-contain mb-2' />
                         </Link>
                     </div>
-                    <Language />
+                    <div className="flex items-center gap-4">
+                        <a href="tel:+37378444410" className="text-white hover:text-gray-300 transition-colors">
+                            <FiPhone className="w-5 h-5" />
+                        </a>
+                        <Language />
+                    </div>
                 </div>
 
                 {/* Logo and Title */}
@@ -84,6 +90,9 @@ const Navbar = () => {
                             {link.label}
                         </Link>
                     ))}
+                    <a href="tel:+37378444410" className="text-[#807f7d] hover:text-white transition-colors mr-2">
+                        <FiPhone className="w-5 h-5" />
+                    </a>
                     <Language />
 
                     {/* Get in touch button */}
