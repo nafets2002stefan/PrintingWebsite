@@ -6,8 +6,24 @@ import ServicesPage from './pages/ServicesPage'
 import Layout from './components/Layout'
 import ContactsPage from './pages/ContactsPage'
 import FAQPage from './pages/FAQPage'
+import SEO from './components/SEO'
 import { useEffect } from 'react'
-          
+
+function SEOHandler() {
+  const { pathname } = useLocation()
+
+  const getPageName = () => {
+    if (pathname === '/') return 'home'
+    if (pathname === '/products') return 'products'
+    if (pathname === '/services') return 'services'
+    if (pathname === '/questions') return 'questions'
+    if (pathname === '/contacts') return 'contacts'
+    return 'home'
+  }
+
+  return <SEO page={getPageName()} />
+}
+
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation()
   useEffect(() => {
@@ -20,6 +36,7 @@ function App() {
 
   return (
     <Router>
+      <SEOHandler />
       <ScrollToTopOnRouteChange />
       <Routes>
         <Route element={<Layout/>}>
