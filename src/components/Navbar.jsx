@@ -10,7 +10,8 @@ import Language from './Language';
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
-    const [t] = useTranslation('global');
+    const [t, i18n] = useTranslation('global');
+    const currentLang = i18n.language || 'ro';
 
     const menuRef = useRef();
     const toggleRef = useRef();
@@ -38,11 +39,11 @@ const Navbar = () => {
     }, [isMenuOpen]);
 
     const navLinks = [
-        { label: t('_home'), href: "/" },
-        { label: t('_products'), href: "/products" },
-        { label: t('_services'), href: "/services" },
-        { label: t('_FAQ'), href: "/questions" },
-        { label: t('_contactUs'), href: "/contacts" }
+        { label: t('_home'), href: `/${currentLang}` },
+        { label: t('_products'), href: `/${currentLang}/products` },
+        { label: t('_services'), href: `/${currentLang}/services` },
+        { label: t('_FAQ'), href: `/${currentLang}/questions` },
+        { label: t('_contactUs'), href: `/${currentLang}/contacts` }
     ];
 
     return (
@@ -60,12 +61,12 @@ const Navbar = () => {
                     </button>
 
                     <div className="items-center gap-1 cursor-pointer flex-shrink-0 object-cover">
-                        <Link to='/'>
+                        <Link to={`/${currentLang}`}>
                             <img src={mainImage} alt="" className='h-15 w-[108px] object-contain mb-2' />
                         </Link>
                     </div>
                     <div className="flex items-center gap-4">
-                        <a href="tel:+37378444410" className="text-white hover:text-gray-300 transition-colors">
+                        <a href="tel:+37379731688" className="text-white hover:text-gray-300 transition-colors">
                             <FiPhone className="w-5 h-5" />
                         </a>
                         <Language />
@@ -74,7 +75,7 @@ const Navbar = () => {
 
                 {/* Logo and Title */}
                 <div className="hidden md:flex items-center gap-1 cursor-pointer">
-                    <Link to='/'>
+                    <Link to={`/${currentLang}`}>
                         <img src={mainImage} alt="" className='[@media(min-width:769px)]:w-[90px] h-15 [@media(min-width:841px)]:w-[108px] object-contain mb-2' />
                     </Link>
                 </div>
@@ -90,14 +91,14 @@ const Navbar = () => {
                             {link.label}
                         </Link>
                     ))}
-                    <a href="tel:+37378444410" className="text-[#807f7d] hover:text-white transition-colors mr-2">
+                    <a href="tel:+37379731688" className="text-[#807f7d] hover:text-white transition-colors mr-2">
                         <FiPhone className="w-5 h-5" />
                     </a>
                     <Language />
 
                     {/* Get in touch button */}
                     <button className='hidden md:block default-bg-button text-black px-6 py-2.5 rounded-lg hover:bg-blue-700 text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-100 [@media(min-width:769px)]:text-sm [@media(min-width:841px)]:text-base'>
-                        <Link to='/contacts'>
+                        <Link to={`/${currentLang}/contacts`}>
                             {t('_getInTouch')}
                         </Link>
                     </button>
@@ -120,9 +121,9 @@ const Navbar = () => {
                         ))}
 
                         {/* Get in touch button */}
-                        <Link to='/contacts'>
+                        <Link to={`/${currentLang}/contacts`}>
                         <button className='w-full default-bg-button text-black px-6 my-3 py-2.5 rounded-lg text-sm font-medium'>
-                            
+
                                 {t('_getInTouch')}
                         </button>
                         </Link>

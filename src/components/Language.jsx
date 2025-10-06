@@ -1,16 +1,21 @@
 import {React, useState, useRef, useEffect} from 'react'
 import { useTranslation } from 'react-i18next';
 import { HiChevronDown } from 'react-icons/hi';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Language() {
   const [t, i18n] = useTranslation('global');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const langRef = useRef();
 
   const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem('language', lng);
+    // Get current path without language prefix
+    const currentPath = location.pathname.replace(/^\/(ro|en|ru)/, '');
+    // Navigate to new language route
+    navigate(`/${lng}${currentPath || ''}`);
     setIsDropdownOpen(false);
   };
 

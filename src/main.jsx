@@ -9,10 +9,14 @@ import global_ru from './translations/ru/global.json'
 import i18next from 'i18next'
 import { I18nextProvider } from 'react-i18next';
 
-const storedLanguage = localStorage.getItem('language') || 'ro';
+// Detect language from URL path or fallback to localStorage or default 'ro'
+const pathLanguage = window.location.pathname.match(/^\/(ro|en|ru)/)?.[1];
+const storedLanguage = localStorage.getItem('language');
+const initialLanguage = pathLanguage || storedLanguage || 'ro';
 
 i18next.init({
-  lng: storedLanguage,
+  lng: initialLanguage,
+  fallbackLng: 'ro',
   resources: {
     en: {
       global: global_en
