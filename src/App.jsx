@@ -1,6 +1,6 @@
 import './App.css'
 import HomePage from './pages/HomePage'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom'
 import ProductsPage from './pages/ProductsPage'
 import ServicesPage from './pages/ServicesPage'
 import Layout from './components/Layout'
@@ -8,16 +8,32 @@ import ContactsPage from './pages/ContactsPage'
 import FAQPage from './pages/FAQPage'
 import SEO from './components/SEO'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+
+function LanguageWrapper() {
+  const { lang } = useParams()
+  const { i18n } = useTranslation()
+
+  useEffect(() => {
+    if (lang && ['ro', 'en', 'ru'].includes(lang)) {
+      i18n.changeLanguage(lang)
+      localStorage.setItem('language', lang)
+    }
+  }, [lang, i18n])
+
+  return null
+}
 
 function SEOHandler() {
   const { pathname } = useLocation()
 
   const getPageName = () => {
-    if (pathname === '/') return 'home'
-    if (pathname === '/products') return 'products'
-    if (pathname === '/services') return 'services'
-    if (pathname === '/questions') return 'questions'
-    if (pathname === '/contacts') return 'contacts'
+    const path = pathname.replace(/^\/(ro|en|ru)/, '')
+    if (path === '/' || path === '') return 'home'
+    if (path === '/products') return 'products'
+    if (path === '/services') return 'services'
+    if (path === '/questions') return 'questions'
+    if (path === '/contacts') return 'contacts'
     return 'home'
   }
 
@@ -39,13 +55,20 @@ function App() {
       <SEOHandler />
       <ScrollToTopOnRouteChange />
       <Routes>
-        <Route element={<Layout/>}>
-          <Route path='/' element={<HomePage/>}/>
-          <Route path='/products' element={<ProductsPage/>}/>
-          <Route path='/services' element={<ServicesPage/>}/>
-          <Route path='/questions' element={<FAQPage/>}/>
-          <Route path='/contacts' element={<ContactsPage/>}/>
+        {/* Redirect root to /ro (Romanian default) */}
+        <Route path='/' element={<Navigate to="/ro" replace />} />
+
+        {/* Language-prefixed routes */}
+        <Route path='/:lang' element={<><LanguageWrapper /><Layout /></>}>
+          <Route index element={<HomePage/>}/>
+          <Route path='products' element={<ProductsPage/>}/>
+          <Route path='services' element={<ServicesPage/>}/>
+          <Route path='questions' element={<FAQPage/>}/>
+          <Route path='contacts' element={<ContactsPage/>}/>
         </Route>
+
+        {/* Fallback redirect */}
+        <Route path='*' element={<Navigate to="/ro" replace />} />
       </Routes>
     </Router>
   )

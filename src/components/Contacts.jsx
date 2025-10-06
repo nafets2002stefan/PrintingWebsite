@@ -23,7 +23,7 @@ function Contacts() {
                         <span className='font-semibold text-[#807f7d]'>Luni — Vineri: 09:00 — 18:00</span>
                         <div className='flex items-center mt-5 text-[#807f7d]' >
                             <FaViber className='size-6 mr-2 text-[#807f7d]'/>
-                            +373 78 444 410
+                            +373 79 73 16 88
                          </div> 
                          <div className='flex items-center mt-5 text-[#807f7d]' >
                             <FaViber className='size-6 mr-2 text-[#807f7d]'/>
@@ -32,11 +32,11 @@ function Contacts() {
                          <br/> 
                          <div className='flex items-center mt-5 text-[#807f7d]' >
                             <IoMailOutline  className='size-6 mr-2'/>
-                            beresteanstefan@gmail.com
+                            flexprintgroup@gmail.com
                          </div>
                          <div className='flex items-center mt-5 text-[#807f7d]' >
                             <IoMailOutline  className='size-6 mr-2'/>
-                            stefanberestea@gmail.com
+                            beresteanstefan@gmail.com
                          </div>
                          <br/> 
                          <div className='flex items-center mt-5 text-[#807f7d]' > 

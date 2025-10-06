@@ -7,14 +7,15 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const [t, i18n] = useTranslation('global');
+    const currentLang = i18n.language || 'ro';
 
     const footerLinks = {
         [t('_company')] : [
-            { name: t('_home'), href: '/' },
-            { name: t('_products'), href: '/products' },
-            { name: t('_services'), href: '/services' },
-            { name: t('_FAQ'), href: '/questions' },
-            { name: t('_contactUs'), href: '/contacts' },
+            { name: t('_home'), href: `/${currentLang}` },
+            { name: t('_products'), href: `/${currentLang}/products` },
+            { name: t('_services'), href: `/${currentLang}/services` },
+            { name: t('_FAQ'), href: `/${currentLang}/questions` },
+            { name: t('_contactUs'), href: `/${currentLang}/contacts` },
         ],
         [t('_contacts')] : [
           { name: t('_viber'), href: `viber://chat?number=${t('_phoneNumber')}` },
