@@ -1,83 +1,108 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next';
-import mainImage from '../assets/contacts-images/main.png'
-import ImageBanner from './ImageBanner'
-import { FaViber } from 'react-icons/fa';
-import { IoMailOutline } from "react-icons/io5";
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import ContactInfo from './ContactInfo'
+import { FaMapMarkedAlt, FaPhone } from 'react-icons/fa'
 
 function Contacts() {
-    
-    const [t] = useTranslation('global');
+
+    const [t] = useTranslation('global')
 
     return (
-        <section className='mt-20 default-bg'>
-            {/* Image banner */}
-            <ImageBanner mainImage={mainImage} title={t('_contacts')}/>
-            <div className='max-w-7xl mx-auto px-4 my-8'>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-                    <div className='cutie'>
-                        <h1 className='text-2xl font-semibold text-white'>{t('_contacts')}</h1>
-                        <div className='h-[1px] bg-[#ffe400] w-full my-5'></div>
-                        <span className='font-semibold text-[#807f7d]'>Luni — Vineri: 09:00 — 18:00</span>
-                        <div className='flex items-center mt-5 text-[#807f7d]' >
-                            <FaViber className='size-6 mr-2 text-[#807f7d]'/>
-                            +373 79 73 16 88
-                         </div> 
-                         <div className='flex items-center mt-5 text-[#807f7d]' >
-                            <FaViber className='size-6 mr-2 text-[#807f7d]'/>
-                            +373 68 52 87 23
-                         </div> 
-                         <br/> 
-                         <div className='flex items-center mt-5 text-[#807f7d]' >
-                            <IoMailOutline  className='size-6 mr-2'/>
-                            flexprintgroup@gmail.com
-                         </div>
-                         <div className='flex items-center mt-5 text-[#807f7d]' >
-                            <IoMailOutline  className='size-6 mr-2'/>
-                            beresteanstefan@gmail.com
-                         </div>
-                         <br/> 
-                         <div className='flex items-center mt-5 text-[#807f7d]' > 
-                            <FaFacebook  className='size-6 mr-2'/>
-                            Facebook
-                         </div>
-                         <div className='flex items-center mt-5 text-[#807f7d]' > 
-                            <FaInstagram  className='size-6 mr-2'/>
-                            Instagram
-                         </div>
-                         <div className='flex items-center mt-5 text-[#807f7d]' > 
-                            <FaXTwitter  className='size-6 mr-2'/>
-                            X
-                         </div>
+        <section className='py-16 md:py-24 default-bg'>
+            <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+                {/* Introduction */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className='text-center mb-16'
+                >
+                    <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
+                        Get in Touch with Us
+                    </h2>
+                    <p className='text-lg text-[#a0a0a0] max-w-2xl mx-auto'>
+                        We're here to help with all your printing needs. Reach out via phone, email, or visit us at our location.
+                    </p>
+                </motion.div>
 
-                    </div>
-                    <div className='space-y-5'>
-                    <div className='cutie'>
-                        <h1 className='text-2xl font-semibold text-white'>{t('_address')}</h1>
-                        <div className='h-[1px] bg-[#ffe400] w-full my-5'></div>
-                        <span className='font-semibold text-[#807f7d]'>Republica Moldova <br/>or. Chișinău </span> <div className='text-[#807f7d]'>Strada Socoleni 7/2</div>
-                    </div>
-                    {/* <div className='cutie'>
-                        <h1 className='text-2xl font-semibold text-white'>{t('_supplies')}</h1>
-                        <div className='h-[1px] bg-[#ffe400] w-full my-5'></div>
-                         <div className='text-[#807f7d]'>Nume: SRL «Capatina Print»<br/>
-                            Cod TVA: 0501938<br/>Cod fiscal: 1003600093280<br/>IBAN: MD34CM000225104980141956<br/>Banca: BIC CMTBMD2X в BC «Comertbank» SA, Sucursala nr. 3<br/>Adresa juridică/fizică: or. Chișinău, str. Columna 170
+                {/* Contact Info Cards */}
+                <div className='mb-16'>
+                    <ContactInfo />
+                </div>
+
+                {/* Map Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className='bg-[#1a1a1a] rounded-2xl overflow-hidden border border-[#333333]'
+                >
+                    {/* Map Header */}
+                    <div className='p-6 md:p-8 border-b border-[#333333]'>
+                        <div className='flex items-center gap-4'>
+                            <div className='w-12 h-12 bg-[#ffe400]/10 rounded-xl flex items-center justify-center text-[#ffe400] text-2xl'>
+                                <FaMapMarkedAlt />
+                            </div>
+                            <div>
+                                <h3 className='text-2xl font-bold text-white'>Find Us Here</h3>
+                                <p className='text-[#a0a0a0]'>Strada Socoleni 7/2, Chișinău, Moldova</p>
+                            </div>
                         </div>
-                    </div> */}
                     </div>
-                </div>
-                <div className='cutie mt-10'>
-                    <h1 className='text-2xl font-semibold text-white'>{t('_map')}</h1>
-                    <div className='h-[1px] bg-[#ffe400] w-full my-5'></div>
-                    <div className='map w-full h-150'>
-                        <iframe className='w-full h-full' src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2719.8!2d28.845950366042775!3d47.06123873202801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDAzJzQwLjUiTiAyOMKwNTAnNDUuNCJF!5e0!3m2!1sro!2s!4v1735000000000!5m2!1sro!2s" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+
+                    {/* Map Embed */}
+                    <div className='relative h-96 md:h-[500px]'>
+                        <iframe
+                            className='w-full h-full'
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2719.8!2d28.845950366042775!3d47.06123873202801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDfCsDAzJzQwLjUiTiAyOMKwNTAnNDUuNCJF!5e0!3m2!1sro!2s!4v1735000000000!5m2!1sro!2s"
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="FlexPrint Location"
+                        ></iframe>
+
+                        {/* Overlay gradient for better integration */}
+                        <div className='absolute inset-0 pointer-events-none border-4 border-[#1a1a1a] rounded-b-2xl'></div>
                     </div>
-                </div>
+                </motion.div>
+
+                {/* Quick Contact Banner */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className='mt-12 bg-gradient-to-r from-[#ffe400] to-[#ffd700] rounded-2xl p-8 md:p-12 text-center'
+                >
+                    <h3 className='text-2xl md:text-3xl font-bold text-black mb-4'>
+                        Need Immediate Assistance?
+                    </h3>
+                    <p className='text-black/80 text-lg mb-6 max-w-2xl mx-auto'>
+                        Our team is available Monday to Friday, 9:00 AM - 6:00 PM. Call us now for urgent inquiries.
+                    </p>
+                    <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+                        <a
+                            href="tel:+37379731688"
+                            className='inline-flex items-center justify-center gap-3 bg-black text-[#ffe400] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#131313] transition-all duration-300 shadow-xl'
+                        >
+                            <FaPhone className='text-xl' />
+                            +373 79 73 16 88
+                        </a>
+                        <a
+                            href="tel:+37368528723"
+                            className='inline-flex items-center justify-center gap-3 bg-black/20 backdrop-blur-sm text-black border-2 border-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-black hover:text-[#ffe400] transition-all duration-300'
+                        >
+                            <FaPhone className='text-xl' />
+                            +373 68 52 87 23
+                        </a>
+                    </div>
+                </motion.div>
             </div>
         </section>
-      )
+    )
 }
 
 export default Contacts

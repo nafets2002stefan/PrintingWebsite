@@ -19,47 +19,65 @@ const products = [
     {
         image : produseCosmeticeImage,
         title : "PRODUSE COSMETICE",
-        description : "Producerea cutiilor de carton pentru produse farmaceutice, cosmetice, alimentare și din tutun."
+        description : "Producerea cutiilor de carton pentru produse farmaceutice, cosmetice, alimentare și din tutun.",
+        category: "Packaging",
+        features: ["Custom designs", "Premium materials", "Various sizes available"]
     },
     {
         image : produseTutunImage,
         title : "PRODUSE DIN TUTUN",
-        description : "Producerea cutiilor de carton pentru produse farmaceutice, cosmetice, alimentare și din tutun."
+        description : "Producerea cutiilor de carton pentru produse farmaceutice, cosmetice, alimentare și din tutun.",
+        category: "Packaging",
+        features: ["Durable construction", "Brand customization", "Regulatory compliant"]
     },
     {
         image : albumImage,
         title : "ALBUME",
-        description : "Albumul este o ediție poligrafică neobișnuită și specială. Este extrem de dificil de pregătit, deoarece este nevoie de un nivel înalt de profesionalism."
+        description : "Albumul este o ediție poligrafică neobișnuită și specială. Este extrem de dificil de pregătit, deoarece este nevoie de un nivel înalt de profesionalism.",
+        category: "Publishing",
+        features: ["Professional binding", "Premium paper quality", "Custom layouts"]
     },
     {
         image : formularAntetImage,
         title : "FORMULAR CU ANTET",
-        description : "Formularul cu antet este un element al stilului corporativ al unei companii, organizații sau persoane publice."
+        description : "Formularul cu antet este un element al stilului corporativ al unei companii, organizații sau persoane publice.",
+        category: "Corporate",
+        features: ["Professional design", "Brand consistency", "Various paper options"]
     },
     {
         image : brosuraImage,
         title : "BROŞURI",
-        description : "Broșurile publicitare conțin informații voluminoase despre produs fiind realizate la un cost relativ scăzut de producere."
+        description : "Broșurile publicitare conțin informații voluminoase despre produs fiind realizate la un cost relativ scăzut de producere.",
+        category: "Marketing",
+        features: ["Full-color printing", "Multiple folding options", "Cost-effective"]
     },
     {
         image : formularImage,
         title : "FORMULARE",
-        description : "Formularul cu antet este un element al stilului corporativ al unei companii. Orice companie trebuie să aibă formulare cu antet."
+        description : "Formularul cu antet este un element al stilului corporativ al unei companii. Orice companie trebuie să aibă formulare cu antet.",
+        category: "Corporate",
+        features: ["Custom formats", "Carbonless copies available", "Bulk discounts"]
     },
     {
         image : carteImage,
         title : "CĂRȚI",
-        description : "O carte tipărită pe hârtie calitativă, cu o copertă originală, realizată dintr-un material de copertare scump, va fi întotdeauna solicitată."
+        description : "O carte tipărită pe hârtie calitativă, cu o copertă originală, realizată dintr-un material de copertare scump, va fi întotdeauna solicitată.",
+        category: "Publishing",
+        features: ["Hardcover & softcover", "Premium finishing", "ISBN registration"]
     },
     {
         image : stickereImage,
         title : "ETICHETE, STICKERE",
-        description : "Produse de etichetare pentru toate tipurile de bunuri. Pot fi realizate din tipuri speciale de hârtie sau autoadezive."
+        description : "Produse de etichetare pentru toate tipurile de bunuri. Pot fi realizate din tipuri speciale de hârtie sau autoadezive.",
+        category: "Labels",
+        features: ["Waterproof options", "Die-cut shapes", "Strong adhesive"]
     },
     {
         image : produseFarmaceuticeImage,
         title : "PRODUSE FARMACEUTICE",
-        description : "Producerea cutiilor de carton pentru produse farmaceutice, cosmetice, alimentare și din tutun."
+        description : "Producerea cutiilor de carton pentru produse farmaceutice, cosmetice, alimentare și din tutun.",
+        category: "Packaging",
+        features: ["Safety certified", "Tamper-evident options", "Compliance approved"]
     }
 ]
 

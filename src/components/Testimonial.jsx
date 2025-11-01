@@ -62,26 +62,27 @@ const Testimonial = () => {
   ];
 
   return (
-    <section className='max-w-7xl mx-auto px-4 py-16'>
+    <section className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24'>
       {/* Heading Section */}
       <motion.div
         ref={headingInView.ref}
         initial={{ opacity: 0, y: 50 }}
         animate={headingInView.inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.2 }}
-        className='text-center mb-12'
+        transition={{ duration: 0.3 }}
+        className='text-center mb-16 max-w-4xl mx-auto'
       >
-        <h2 className='text-3xl font-bold mb-4 text-white'>{t('_featureHeading')}</h2>
-        <p className='text-l default-link-color'>{t('_featuringParagraph1')}</p>
-        <p className='text-l default-link-color'>{t('_featuringParagraph2')}</p>
-        <p className='text-l default-link-color'>{t('_featuringParagraph3')}</p>
+        <h2 className='text-4xl md:text-5xl font-bold mb-6 text-white leading-tight'>Client Testimonials</h2>
+        <div className='space-y-2 text-base md:text-lg default-link-color leading-relaxed'>
+          <p>Hear what our satisfied clients have to say about our printing services.</p>
+          <p>Quality, reliability, and customer satisfaction are at the heart of everything we do.</p>
+        </div>
       </motion.div>
       {/* Testimonial Boxes */}
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
         {testimonials.map((testimonial, index) => {
           const [ref, inView] = useInView({
             triggerOnce: false,
-            threshold: 0.2,
+            threshold: 0.1,
           });
 
           return (
@@ -90,25 +91,37 @@ const Testimonial = () => {
               ref={ref}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.2, delay: index * 0.1 }}
-              className='flex flex-col items-center p-6 text-center border-[#807f7d] md:border-1 rounded-2xl'
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className='group flex flex-col items-center p-8 text-center bg-[#1a1a1a] rounded-2xl border-2 border-[#333333] hover:border-[#ffe400] hover:bg-[#222222] transition-all duration-300 hover:shadow-2xl hover:shadow-[#ffe400]/10 hover:-translate-y-2'
               onFocus={() => setActiveIndex(index)}
               onBlur={() => setActiveIndex(null)}
               onMouseEnter={() => setActiveIndex(index)}
-              onTouchMove={() => setActiveIndex(index)}
+              onTouchStart={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
             >
-              <div
-                className={`w-24 h-24 rounded-full mb-6 flex items-center justify-center border-3 text-[#807f7d] hover:bg-[#ffe400] hover:text-[#ffe400] transition-all duration-200 ${
-                  activeIndex === index ? 'bg-[#ffe400]' : ''
-                }`}
-              >
-                <img src={testimonial.imgSrc} className='rounded-full' alt="" />
+              {/* Avatar */}
+              <div className='w-20 h-20 md:w-24 md:h-24 rounded-full mb-5 overflow-hidden border-4 border-[#333333] group-hover:border-[#ffe400] transition-all duration-300 group-hover:scale-110'>
+                <img src={testimonial.imgSrc} className='w-full h-full object-cover' alt={testimonial.name} />
               </div>
-              <h3 className='text-2xl font-medium mb-3 text-white'>{testimonial.name}</h3>
-              <span className='text-xl font-medium mb-3 text-[#ffe400] flex flex-wrap gap-2'><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></span>
-              <p className='default-link-color text-center'>{testimonial.text}</p>
-        </motion.div>
+
+              {/* Name */}
+              <h3 className='text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-[#ffe400] transition-colors duration-300'>{testimonial.name}</h3>
+
+              {/* Stars */}
+              <div className='flex gap-1 mb-5 text-[#ffe400]'>
+                <FaStar className='text-lg md:text-xl'/>
+                <FaStar className='text-lg md:text-xl'/>
+                <FaStar className='text-lg md:text-xl'/>
+                <FaStar className='text-lg md:text-xl'/>
+                <FaStar className='text-lg md:text-xl'/>
+              </div>
+
+              {/* Testimonial Text */}
+              <p className='default-link-color text-sm md:text-base leading-relaxed group-hover:text-[#b0b0b0] transition-colors duration-300'>{testimonial.text}</p>
+
+              {/* Quote Icon Background */}
+              <div className='absolute top-6 right-6 text-6xl text-[#ffe400]/10 group-hover:text-[#ffe400]/20 transition-colors duration-300 font-serif'>"</div>
+            </motion.div>
           );
         })}
       </div>

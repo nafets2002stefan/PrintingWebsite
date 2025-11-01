@@ -1,29 +1,30 @@
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const SEO = ({ page = 'home' }) => {
-  const { t } = useTranslation('global');
+const SEO = () => {
+  const { i18n } = useTranslation();
 
-  // Page name translations
-  const pageNames = {
-    home: { key: '_home' },
-    products: { key: '_products' },
-    services: { key: '_services' },
-    questions: { key: '_FAQLong' },
-    contacts: { key: '_contacts' }
+  const seoContent = {
+    ro: {
+      title: 'Servicii Tipografie si Imprimare | Сhisinau | Tipărire rapidă | FlexPrint.md',
+      description: 'Produsele poligrafice: tipar broșuri, tiparire pliante, cataloage, stickere, etichete și ambalaje, reviste, Tipărire rapidă, si alte servicii de imprimare in Moldova'
+    },
+    ru: {
+      title: 'Услуги типографии и печати | Кишинёв | Быстрая печать | FlexPrint.md',
+      description: 'Полиграфическая продукция: печать брошюр, печать листовок, каталогов, стикеров, этикеток и упаковки, журналов, быстрая печать и другие услуги печати в Молдове'
+    },
+    en: {
+      title: 'only | Chisinau | Fast Printing | FlexPrint.md',
+      description: 'Printing products: brochures, flyers, catalogs, stickers, labels and packaging, magazines, fast printing and other printing services in Moldova'
+    }
   };
 
-  // Use useLayoutEffect to update before browser paint
-  useLayoutEffect(() => {
-    const baseTitle = t('_metaTitle');
-    const baseDescription = t('_metaDescription');
-    const pageName = pageNames[page]?.key ? t(pageNames[page].key) : '';
-
-    // Create title with page name prefix if not home
-    const title = page === 'home' ? baseTitle : `${pageName} | ${baseTitle}`;
+  useEffect(() => {
+    const currentLang = i18n.language;
+    const content = seoContent[currentLang] || seoContent.ro;
 
     // Update title
-    document.title = title;
+    document.title = content.title;
 
     // Update or create meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -32,8 +33,8 @@ const SEO = ({ page = 'home' }) => {
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = baseDescription;
-  }, [t, page]);
+    metaDescription.content = content.description;
+  }, [i18n.language]);
 
   return null;
 };
