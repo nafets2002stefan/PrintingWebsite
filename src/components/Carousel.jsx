@@ -63,33 +63,53 @@ const Carousel = ({
     },[curr])
 
     return (
-        <div className='overflow-hidden relative'
+        <div className='overflow-hidden relative group'
         onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd} 
+        onTouchEnd={handleTouchEnd}
         >
-            <div className='flex transition-transform ease-out duration-500' style={{ transform: `translateX(-${curr * 100}%)` }}>
+            <div className='flex transition-transform ease-out duration-700' style={{ transform: `translateX(-${curr * 100}%)` }}>
                 {slides.map((slide, index) => (
                     <div key={index} className="w-full flex-shrink-0 relative">
-                        <img src={slide.image} alt={`Slide ${index}`} className="w-full h-80 object-cover" />
-                        <div className="absolute inset-0 bg-black opacity-60"></div>
-                        <div className='absolute inset-0 flex items-center justify-center text-white text-[25px] [@media(min-width:470px)]:text-[30px] [@media(min-width:541px)]:text-[35px] md:text-[40px] font-semibold'>{slide.text}</div>
+                        <img src={slide.image} alt={`Slide ${index}`} className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+                        <div className='absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8'>
+                            <h2 className='text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center leading-tight tracking-tight drop-shadow-2xl animate-fade-in'>{slide.text}</h2>
+                        </div>
                     </div>
                 ))}
             </div>
-            <div className='absolute inset-0 flex items-center justify-between p-4'>
-                <button onClick={prev} className='p-1 rounded-full shadow bg-[rgba(2,0,0,0.17)] hover:bg-[rgba(2,0,0,0.8)]'>
-                    <BiChevronLeft size={40} className='text-white'/>
+            {/* Navigation Buttons */}
+            <div className='absolute inset-0 flex items-center justify-between p-4 sm:p-6 md:p-8'>
+                <button
+                    onClick={prev}
+                    className='p-2 md:p-3 rounded-full shadow-lg bg-black/30 hover:bg-[#ffe400] backdrop-blur-sm border border-white/20 hover:border-[#ffe400] transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110'
+                    aria-label="Previous slide"
+                >
+                    <BiChevronLeft size={32} className='text-white hover:text-black transition-colors'/>
                 </button>
-                <button onClick={next} className='p-1 rounded-full shadow bg-[rgba(2,0,0,0.17)] hover:bg-[rgba(2,0,0,0.8)]'>
-                    <BiChevronRight size={40} className='text-white'/>
+                <button
+                    onClick={next}
+                    className='p-2 md:p-3 rounded-full shadow-lg bg-black/30 hover:bg-[#ffe400] backdrop-blur-sm border border-white/20 hover:border-[#ffe400] transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110'
+                    aria-label="Next slide"
+                >
+                    <BiChevronRight size={32} className='text-white hover:text-black transition-colors'/>
                 </button>
             </div>
 
-            <div className="absolute bottom-4 right-0 left-0">
-                <div className="flex items-center justify-center gap-2">
+            {/* Indicators */}
+            <div className="absolute bottom-6 md:bottom-8 right-0 left-0">
+                <div className="flex items-center justify-center gap-2 md:gap-3">
                     {slides.map((_, i) => (
-                        <div key={i} className={`transition-all w-1 h-1 md:w-3 md:h-3 bg-white rounded-full ${curr === i ? "p-1 md:p-2": "opacity-50"}`} />
-                            
+                        <button
+                            key={i}
+                            onClick={() => setCurr(i)}
+                            className={`transition-all rounded-full ${
+                                curr === i
+                                    ? "w-8 md:w-12 h-2 md:h-2.5 bg-[#ffe400]"
+                                    : "w-2 md:w-3 h-2 md:h-2.5 bg-white/50 hover:bg-white/80"
+                            }`}
+                            aria-label={`Go to slide ${i + 1}`}
+                        />
                     ))}
                 </div>
             </div>
