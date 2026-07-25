@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaPaperPlane, FaUser, FaEnvelope, FaPhone, FaComment } from 'react-icons/fa'
 
 const ContactForm = () => {
+  const [t] = useTranslation('global')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -35,10 +37,10 @@ const ContactForm = () => {
     >
       <div className='mb-8'>
         <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
-          Send Us a Message
+          {t('_contactFormHeading')}
         </h2>
         <p className='text-[#a0a0a0] text-lg'>
-          Fill out the form below and we'll get back to you within 24 hours
+          {t('_contactFormSubheading')}
         </p>
       </div>
 
@@ -46,7 +48,7 @@ const ContactForm = () => {
         {/* Name Field */}
         <div className='relative'>
           <label className='block text-sm font-semibold text-[#a0a0a0] mb-2'>
-            Your Name *
+            {t('_contactFormName')}
           </label>
           <div className='relative'>
             <FaUser className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
@@ -61,7 +63,7 @@ const ContactForm = () => {
               onBlur={() => setFocused({ ...focused, name: false })}
               required
               className='w-full bg-[#0a0a0a] border-2 border-[#333333] rounded-xl px-12 py-4 text-white placeholder-[#666666] focus:border-[#ffe400] focus:outline-none transition-all duration-300'
-              placeholder='John Doe'
+              placeholder={t('_contactFormNamePlaceholder')}
             />
           </div>
         </div>
@@ -69,7 +71,7 @@ const ContactForm = () => {
         {/* Email Field */}
         <div className='relative'>
           <label className='block text-sm font-semibold text-[#a0a0a0] mb-2'>
-            Email Address *
+            {t('_contactFormEmail')}
           </label>
           <div className='relative'>
             <FaEnvelope className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
@@ -84,7 +86,7 @@ const ContactForm = () => {
               onBlur={() => setFocused({ ...focused, email: false })}
               required
               className='w-full bg-[#0a0a0a] border-2 border-[#333333] rounded-xl px-12 py-4 text-white placeholder-[#666666] focus:border-[#ffe400] focus:outline-none transition-all duration-300'
-              placeholder='john@example.com'
+              placeholder={t('_contactFormEmailPlaceholder')}
             />
           </div>
         </div>
@@ -92,7 +94,7 @@ const ContactForm = () => {
         {/* Phone Field */}
         <div className='relative'>
           <label className='block text-sm font-semibold text-[#a0a0a0] mb-2'>
-            Phone Number
+            {t('_contactFormPhone')}
           </label>
           <div className='relative'>
             <FaPhone className={`absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors duration-300 ${
@@ -106,7 +108,7 @@ const ContactForm = () => {
               onFocus={() => setFocused({ ...focused, phone: true })}
               onBlur={() => setFocused({ ...focused, phone: false })}
               className='w-full bg-[#0a0a0a] border-2 border-[#333333] rounded-xl px-12 py-4 text-white placeholder-[#666666] focus:border-[#ffe400] focus:outline-none transition-all duration-300'
-              placeholder='+373 XX XXX XXX'
+              placeholder={t('_contactFormPhonePlaceholder')}
             />
           </div>
         </div>
@@ -114,7 +116,7 @@ const ContactForm = () => {
         {/* Message Field */}
         <div className='relative'>
           <label className='block text-sm font-semibold text-[#a0a0a0] mb-2'>
-            Your Message *
+            {t('_contactFormMessage')}
           </label>
           <div className='relative'>
             <FaComment className={`absolute left-4 top-6 transition-colors duration-300 ${
@@ -129,7 +131,7 @@ const ContactForm = () => {
               required
               rows='6'
               className='w-full bg-[#0a0a0a] border-2 border-[#333333] rounded-xl px-12 py-4 text-white placeholder-[#666666] focus:border-[#ffe400] focus:outline-none transition-all duration-300 resize-none'
-              placeholder='Tell us about your project...'
+              placeholder={t('_contactFormMessagePlaceholder')}
             />
           </div>
         </div>
@@ -142,11 +144,11 @@ const ContactForm = () => {
           className='w-full bg-[#ffe400] text-black font-bold text-lg py-4 rounded-xl hover:bg-[#ffd700] transition-all duration-300 shadow-xl shadow-[#ffe400]/30 flex items-center justify-center gap-3'
         >
           <FaPaperPlane />
-          Send Message
+          {t('_contactFormSubmit')}
         </motion.button>
 
         <p className='text-sm text-[#666666] text-center'>
-          We respect your privacy. Your information will never be shared.
+          {t('_contactFormPrivacy')}
         </p>
       </form>
     </motion.div>

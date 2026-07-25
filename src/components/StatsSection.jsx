@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
 import { FaAward, FaUsers, FaBox, FaClock } from 'react-icons/fa'
 
 const StatsSection = () => {
+  const [t] = useTranslation('global')
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -14,28 +16,28 @@ const StatsSection = () => {
       icon: <FaClock />,
       end: 15,
       suffix: '+',
-      label: 'Years in Business',
+      label: t('_statsYears'),
       color: '#ffe400'
     },
     {
       icon: <FaBox />,
       end: 5000,
       suffix: '+',
-      label: 'Projects Completed',
+      label: t('_statsProjects'),
       color: '#ffe400'
     },
     {
       icon: <FaUsers />,
       end: 800,
       suffix: '+',
-      label: 'Happy Clients',
+      label: t('_statsClients'),
       color: '#ffe400'
     },
     {
       icon: <FaAward />,
       end: 50,
       suffix: '+',
-      label: 'Awards Won',
+      label: t('_statsAwards'),
       color: '#ffe400'
     }
   ]
@@ -84,10 +86,10 @@ const StatsSection = () => {
           className='text-center mb-16'
         >
           <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
-            Our Success in Numbers
+            {t('_statsHeading')}
           </h2>
           <p className='text-lg md:text-xl text-[#a0a0a0] max-w-2xl mx-auto'>
-            Trusted by hundreds of businesses for exceptional printing solutions
+            {t('_statsSubheading')}
           </p>
         </motion.div>
 

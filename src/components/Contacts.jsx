@@ -20,10 +20,10 @@ function Contacts() {
                     className='text-center mb-16'
                 >
                     <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
-                        Get in Touch with Us
+                        {t('_contactsHeading')}
                     </h2>
                     <p className='text-lg text-[#a0a0a0] max-w-2xl mx-auto'>
-                        We're here to help with all your printing needs. Reach out via phone, email, or visit us at our location.
+                        {t('_contactsSubheading')}
                     </p>
                 </motion.div>
 
@@ -47,8 +47,8 @@ function Contacts() {
                                 <FaMapMarkedAlt />
                             </div>
                             <div>
-                                <h3 className='text-2xl font-bold text-white'>Find Us Here</h3>
-                                <p className='text-[#a0a0a0]'>Strada Socoleni 7/2, Chișinău, Moldova</p>
+                                <h3 className='text-2xl font-bold text-white'>{t('_findUsHere')}</h3>
+                                <p className='text-[#a0a0a0]'>{t('_fullAddress')}</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ function Contacts() {
                             allowFullScreen=""
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            title="FlexPrint Location"
+                            title={t('_mapTitle')}
                         ></iframe>
 
                         {/* Overlay gradient for better integration */}
@@ -78,10 +78,10 @@ function Contacts() {
                     className='mt-12 bg-gradient-to-r from-[#ffe400] to-[#ffd700] rounded-2xl p-8 md:p-12 text-center'
                 >
                     <h3 className='text-2xl md:text-3xl font-bold text-black mb-4'>
-                        Need Immediate Assistance?
+                        {t('_needAssistanceTitle')}
                     </h3>
                     <p className='text-black/80 text-lg mb-6 max-w-2xl mx-auto'>
-                        Our team is available Monday to Friday, 9:00 AM - 6:00 PM. Call us now for urgent inquiries.
+                        {t('_needAssistanceText')}
                     </p>
                     <div className='flex flex-col sm:flex-row gap-4 justify-center'>
                         <a

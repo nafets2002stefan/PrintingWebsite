@@ -10,8 +10,8 @@ function ContactsPage() {
     <main className='relative min-h-screen overflow-x-hidden default-bg'>
       <PageHeader
         title={t('_contactUs')}
-        subtitle="Get in touch with our team. We're here to help bring your printing projects to life"
-        breadcrumbs={['Home', 'Contact']}
+        subtitle={t('_contactsPageSubtitle')}
+        breadcrumbs={[t('_home'), t('_contactUs')]}
       />
       <Contacts/>
     </main>

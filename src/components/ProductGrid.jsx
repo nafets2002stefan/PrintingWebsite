@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaArrowRight, FaCheck } from 'react-icons/fa'
 
 const ProductGrid = ({ products }) => {
+  const [t, i18n] = useTranslation('global')
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [selectedCategory, setSelectedCategory] = useState('All')
+
+  useEffect(() => {
+    setSelectedCategory('All')
+  }, [i18n.language])
 
   // Extract unique categories
   const categories = ['All', ...new Set(products.map(p => p.category || 'General'))]
@@ -34,7 +40,7 @@ const ProductGrid = ({ products }) => {
                   : 'bg-[#1a1a1a] text-[#a0a0a0] hover:bg-[#222222] hover:text-white border border-[#333333]'
               }`}
             >
-              {category}
+              {category === 'All' ? t('_all') : category}
             </button>
           ))}
         </motion.div>
@@ -114,7 +120,7 @@ const ProductGrid = ({ products }) => {
         {/* Show message if no products */}
         {filteredProducts.length === 0 && (
           <div className='text-center py-20'>
-            <p className='text-[#a0a0a0] text-xl'>No products found in this category.</p>
+            <p className='text-[#a0a0a0] text-xl'>{t('_noProductsFound')}</p>
           </div>
         )}
       </div>

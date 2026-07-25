@@ -1,40 +1,30 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const SEO = () => {
-  const { i18n } = useTranslation();
+const pageKeys = {
+  home: { title: '_metaTitle', description: '_metaDescription' },
+  products: { title: '_metaTitleProducts', description: '_metaDescProducts' },
+  services: { title: '_metaTitleServices', description: '_metaDescServices' },
+  questions: { title: '_metaTitleFAQ', description: '_metaDescFAQ' },
+  contacts: { title: '_metaTitleContacts', description: '_metaDescContacts' },
+};
 
-  const seoContent = {
-    ro: {
-      title: 'Servicii Tipografie si Imprimare | Сhisinau | Tipărire rapidă | FlexPrint.md',
-      description: 'Produsele poligrafice: tipar broșuri, tiparire pliante, cataloage, stickere, etichete și ambalaje, reviste, Tipărire rapidă, si alte servicii de imprimare in Moldova'
-    },
-    ru: {
-      title: 'Услуги типографии и печати | Кишинёв | Быстрая печать | FlexPrint.md',
-      description: 'Полиграфическая продукция: печать брошюр, печать листовок, каталогов, стикеров, этикеток и упаковки, журналов, быстрая печать и другие услуги печати в Молдове'
-    },
-    en: {
-      title: 'only | Chisinau | Fast Printing | FlexPrint.md',
-      description: 'Printing products: brochures, flyers, catalogs, stickers, labels and packaging, magazines, fast printing and other printing services in Moldova'
-    }
-  };
+const SEO = ({ page = 'home' }) => {
+  const [t, i18n] = useTranslation('global');
 
   useEffect(() => {
-    const currentLang = i18n.language;
-    const content = seoContent[currentLang] || seoContent.ro;
+    const keys = pageKeys[page] || pageKeys.home;
 
-    // Update title
-    document.title = content.title;
+    document.title = t(keys.title);
 
-    // Update or create meta description
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
       metaDescription.name = 'description';
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = content.description;
-  }, [i18n.language]);
+    metaDescription.content = t(keys.description);
+  }, [i18n.language, page, t]);
 
   return null;
 };
