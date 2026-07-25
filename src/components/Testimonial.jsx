@@ -71,10 +71,10 @@ const Testimonial = () => {
         transition={{ duration: 0.3 }}
         className='text-center mb-16 max-w-4xl mx-auto'
       >
-        <h2 className='text-4xl md:text-5xl font-bold mb-6 text-white leading-tight'>Client Testimonials</h2>
+        <h2 className='text-4xl md:text-5xl font-bold mb-6 text-white leading-tight'>{t('_testimonialsHeading')}</h2>
         <div className='space-y-2 text-base md:text-lg default-link-color leading-relaxed'>
-          <p>Hear what our satisfied clients have to say about our printing services.</p>
-          <p>Quality, reliability, and customer satisfaction are at the heart of everything we do.</p>
+          <p>{t('_testimonialsSubheading1')}</p>
+          <p>{t('_testimonialsSubheading2')}</p>
         </div>
       </motion.div>
       {/* Testimonial Boxes */}

@@ -1,28 +1,30 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaFileAlt, FaPaintBrush, FaPrint, FaTruck } from 'react-icons/fa'
 
 const ProcessTimeline = () => {
+  const [t] = useTranslation('global')
   const steps = [
     {
       icon: <FaFileAlt />,
-      title: 'Consultation',
-      description: 'Share your requirements and ideas with our team. We discuss your needs and provide expert guidance.'
+      title: t('_processStep1Title'),
+      description: t('_processStep1Desc')
     },
     {
       icon: <FaPaintBrush />,
-      title: 'Design & Pre-Press',
-      description: 'Our designers create mockups and prepare files for printing with precision and attention to detail.'
+      title: t('_processStep2Title'),
+      description: t('_processStep2Desc')
     },
     {
       icon: <FaPrint />,
-      title: 'Production',
-      description: 'Using modern equipment, we print your materials with exceptional quality and color accuracy.'
+      title: t('_processStep3Title'),
+      description: t('_processStep3Desc')
     },
     {
       icon: <FaTruck />,
-      title: 'Delivery',
-      description: 'Fast and reliable delivery to your location. Quality checked and ready to impress.'
+      title: t('_processStep4Title'),
+      description: t('_processStep4Desc')
     }
   ]
 
@@ -38,10 +40,10 @@ const ProcessTimeline = () => {
           className='text-center mb-16'
         >
           <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
-            How We Work
+            {t('_processHeading')}
           </h2>
           <p className='text-lg md:text-xl text-[#a0a0a0] max-w-2xl mx-auto'>
-            Our streamlined process ensures quality results from start to finish
+            {t('_processSubheading')}
           </p>
         </motion.div>
 

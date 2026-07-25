@@ -1,28 +1,30 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaStar, FaAward, FaClock, FaCheckCircle } from 'react-icons/fa'
 
 const ProductHighlight = () => {
+  const [t] = useTranslation('global')
   const highlights = [
     {
       icon: <FaStar />,
-      title: 'Premium Quality',
-      description: 'High-grade materials and precision printing'
+      title: t('_premiumQuality'),
+      description: t('_highlightQualityDesc')
     },
     {
       icon: <FaClock />,
-      title: 'Fast Production',
-      description: 'Quick turnaround from 24 hours'
+      title: t('_highlightSpeedTitle'),
+      description: t('_highlightSpeedDesc')
     },
     {
       icon: <FaAward />,
-      title: 'Expert Design',
-      description: 'Professional design assistance included'
+      title: t('_highlightDesignTitle'),
+      description: t('_highlightDesignDesc')
     },
     {
       icon: <FaCheckCircle />,
-      title: 'Custom Solutions',
-      description: 'Tailored to your exact specifications'
+      title: t('_highlightCustomTitle'),
+      description: t('_highlightCustomDesc')
     }
   ]
 
@@ -37,10 +39,10 @@ const ProductHighlight = () => {
           className='text-center mb-12'
         >
           <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
-            Why Choose Our Products?
+            {t('_productHighlightHeading')}
           </h2>
           <p className='text-lg text-[#a0a0a0] max-w-2xl mx-auto'>
-            Industry-leading quality and service that sets us apart
+            {t('_productHighlightSubheading')}
           </p>
         </motion.div>
 

@@ -41,18 +41,18 @@ const CTABanner = () => {
             className='inline-block mb-6'
           >
             <span className='bg-black/20 backdrop-blur-sm text-black px-6 py-2 rounded-full text-sm font-semibold'>
-              ✨ Ready to Start Your Project?
+              {t('_ctaBadge')}
             </span>
           </motion.div>
 
           {/* Heading */}
           <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight'>
-            Let's Bring Your Ideas to Life
+            {t('_ctaHeading')}
           </h2>
 
           {/* Description */}
           <p className='text-lg md:text-xl text-black/80 max-w-3xl mx-auto mb-10 leading-relaxed'>
-            Get in touch with our team today for a free consultation and quote. We're here to help you create stunning printed materials that make an impact.
+            {t('_ctaDescription')}
           </p>
 
           {/* CTA Buttons */}
@@ -63,7 +63,7 @@ const CTABanner = () => {
                 whileTap={{ scale: 0.95 }}
                 className='group bg-black text-[#ffe400] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#131313] transition-all duration-300 shadow-2xl hover:shadow-black/50 flex items-center gap-3'
               >
-                Get Started Now
+                {t('_ctaGetStarted')}
                 <FaArrowRight className='group-hover:translate-x-1 transition-transform duration-300' />
               </motion.button>
             </Link>
@@ -75,7 +75,7 @@ const CTABanner = () => {
                 className='group bg-white/20 backdrop-blur-sm text-black border-2 border-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-black hover:text-[#ffe400] hover:border-[#ffe400] transition-all duration-300 shadow-lg flex items-center gap-3'
               >
                 <FaPhone className='group-hover:rotate-12 transition-transform duration-300' />
-                Call Us Now
+                {t('_ctaCallUs')}
               </motion.button>
             </a>
           </div>
@@ -90,19 +90,19 @@ const CTABanner = () => {
           >
             <div className='flex items-center gap-2'>
               <span className='text-2xl'>✓</span>
-              <span>15+ Years Experience</span>
+              <span>{t('_ctaYearsExperience')}</span>
             </div>
             <div className='flex items-center gap-2'>
               <span className='text-2xl'>✓</span>
-              <span>5000+ Projects</span>
+              <span>{t('_ctaProjects')}</span>
             </div>
             <div className='flex items-center gap-2'>
               <span className='text-2xl'>✓</span>
-              <span>Fast Turnaround</span>
+              <span>{t('_ctaFastTurnaround')}</span>
             </div>
             <div className='flex items-center gap-2'>
               <span className='text-2xl'>✓</span>
-              <span>Premium Quality</span>
+              <span>{t('_premiumQuality')}</span>
             </div>
           </motion.div>
         </motion.div>

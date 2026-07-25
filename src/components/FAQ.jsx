@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaChevronDown, FaQuestionCircle, FaPhone, FaEnvelope } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
@@ -11,66 +11,71 @@ function FAQ() {
     const [selectedCategory, setSelectedCategory] = useState('All')
     const currentLang = i18n.language || 'ro'
 
+    useEffect(() => {
+        setSelectedCategory('All')
+        setActiveIndex(null)
+    }, [i18n.language])
+
     const faqData = [
         {
             question: t('_question1'),
             answer: t('_answer1'),
-            category: 'General'
+            category: t('_faqCatGeneral')
         },
         {
             question: t('_question2'),
             answer: t('_answer2'),
-            category: 'Services'
+            category: t('_faqCatServices')
         },
         {
             question: t('_question3'),
             answer: t('_answer3'),
-            category: 'Services'
+            category: t('_faqCatServices')
         },
         {
             question: t('_question4'),
             answer: t('_answer4'),
-            category: 'Technical'
+            category: t('_faqCatTechnical')
         },
         {
             question: t('_question5'),
             answer: t('_answer5'),
-            category: 'Pricing'
+            category: t('_faqCatPricing')
         },
         {
             question: t('_question6'),
             answer: t('_answer6'),
-            category: 'Pricing'
+            category: t('_faqCatPricing')
         },
         {
             question: t('_question7'),
             answer: t('_answer7'),
-            category: 'Services'
+            category: t('_faqCatServices')
         },
         {
             question: t('_question8'),
             answer: t('_answer8'),
-            category: 'Technical'
+            category: t('_faqCatTechnical')
         },
         {
             question: t('_question9'),
             answer: t('_answer9'),
-            category: 'General'
+            category: t('_faqCatGeneral')
         },
         {
             question: t('_question10'),
             answer: t('_answer10'),
-            category: 'Services'
+            category: t('_faqCatServices')
         },
         {
             question: t('_question11'),
             answer: t('_answer11'),
-            category: 'Pricing'
+            category: t('_faqCatPricing')
         },
         {
             question: t('_question12'),
             answer: t('_answer12'),
-            category: 'Technical'
+            category: t('_faqCatTechnical')
         },
     ]
 
@@ -96,13 +101,13 @@ function FAQ() {
                 >
                     <div className='inline-flex items-center gap-3 bg-[#ffe400]/10 border border-[#ffe400]/30 px-6 py-3 rounded-full mb-6'>
                         <FaQuestionCircle className='text-[#ffe400] text-xl' />
-                        <span className='text-[#ffe400] font-semibold'>Got Questions?</span>
+                        <span className='text-[#ffe400] font-semibold'>{t('_faqBadge')}</span>
                     </div>
                     <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
-                        We've Got Answers
+                        {t('_faqHeading')}
                     </h2>
                     <p className='text-lg text-[#a0a0a0] max-w-2xl mx-auto'>
-                        Browse through our most frequently asked questions to find the information you need
+                        {t('_faqSubheading')}
                     </p>
                 </motion.div>
 
@@ -127,7 +132,7 @@ function FAQ() {
                                     : 'bg-[#1a1a1a] text-[#a0a0a0] hover:bg-[#222222] hover:text-white border border-[#333333]'
                             }`}
                         >
-                            {category}
+                            {category === 'All' ? t('_all') : category}
                         </button>
                     ))}
                 </motion.div>
@@ -222,10 +227,10 @@ function FAQ() {
                 >
                     <div className='text-center'>
                         <h3 className='text-2xl md:text-3xl font-bold text-white mb-4'>
-                            Still Have Questions?
+                            {t('_faqStillQuestions')}
                         </h3>
                         <p className='text-lg text-[#a0a0a0] mb-8 max-w-2xl mx-auto'>
-                            Our team is here to help. Contact us and we'll get back to you as soon as possible.
+                            {t('_faqStillQuestionsText')}
                         </p>
 
                         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
@@ -236,7 +241,7 @@ function FAQ() {
                                     className='bg-[#ffe400] text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#ffd700] transition-all duration-300 shadow-xl shadow-[#ffe400]/20 flex items-center gap-3'
                                 >
                                     <FaEnvelope />
-                                    Contact Us
+                                    {t('_contactUs')}
                                 </motion.button>
                             </Link>
 
@@ -247,7 +252,7 @@ function FAQ() {
                                     className='bg-transparent border-2 border-[#ffe400] text-[#ffe400] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#ffe400] hover:text-black transition-all duration-300 flex items-center gap-3'
                                 >
                                     <FaPhone />
-                                    Call Now
+                                    {t('_faqCallNow')}
                                 </motion.button>
                             </a>
                         </div>

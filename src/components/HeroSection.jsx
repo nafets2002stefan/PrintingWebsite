@@ -11,19 +11,19 @@ const HeroSection = () => {
 
   const slides = [
     {
-      title: "Professional Printing Solutions",
-      subtitle: "Quality That Speaks for Itself",
-      description: "From concept to delivery, we bring your vision to life with precision and excellence"
+      title: t('_heroSlide1Title'),
+      subtitle: t('_heroSlide1Subtitle'),
+      description: t('_heroSlide1Desc')
     },
     {
-      title: "Custom Packaging Design",
-      subtitle: "Stand Out From the Crowd",
-      description: "Unique packaging solutions that elevate your brand and captivate your customers"
+      title: t('_heroSlide2Title'),
+      subtitle: t('_heroSlide2Subtitle'),
+      description: t('_heroSlide2Desc')
     },
     {
-      title: "Fast & Reliable Service",
-      subtitle: "Your Deadlines, Our Priority",
-      description: "Quick turnaround times without compromising on quality or attention to detail"
+      title: t('_heroSlide3Title'),
+      subtitle: t('_heroSlide3Subtitle'),
+      description: t('_heroSlide3Desc')
     }
   ]
 
@@ -68,7 +68,7 @@ const HeroSection = () => {
               className='inline-block mb-6'
             >
               <span className='bg-[#ffe400]/10 border border-[#ffe400]/30 text-[#ffe400] px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm'>
-                ⭐ Premium Printing Services
+                {t('_heroBadge')}
               </span>
             </motion.div>
 
@@ -121,7 +121,7 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.95 }}
                   className='group bg-[#ffe400] text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#ffd700] transition-all duration-300 shadow-2xl shadow-[#ffe400]/20 flex items-center justify-center gap-3'
                 >
-                  View Our Products
+                  {t('_heroViewProducts')}
                   <FaArrowRight className='group-hover:translate-x-1 transition-transform duration-300' />
                 </motion.button>
               </Link>
@@ -132,7 +132,7 @@ const HeroSection = () => {
                   whileTap={{ scale: 0.95 }}
                   className='group bg-transparent border-2 border-[#ffe400] text-[#ffe400] px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#ffe400] hover:text-black transition-all duration-300 flex items-center justify-center gap-3'
                 >
-                  Contact Us
+                  {t('_contactUs')}
                 </motion.button>
               </Link>
             </motion.div>
@@ -146,7 +146,7 @@ const HeroSection = () => {
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     currentSlide === index ? 'w-12 bg-[#ffe400]' : 'w-8 bg-[#ffe400]/30 hover:bg-[#ffe400]/50'
                   }`}
-                  aria-label={`Go to slide ${index + 1}`}
+                  aria-label={t('_goToSlide', { n: index + 1 })}
                 />
               ))}
             </div>
@@ -233,7 +233,7 @@ const HeroSection = () => {
           transition={{ duration: 1.5, repeat: Infinity }}
           className='text-[#ffe400] text-sm font-medium flex flex-col items-center gap-2'
         >
-          <span>Scroll Down</span>
+          <span>{t('_heroScrollDown')}</span>
           <div className='w-6 h-10 border-2 border-[#ffe400] rounded-full flex justify-center'>
             <motion.div
               animate={{ y: [0, 16, 0] }}

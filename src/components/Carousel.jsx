@@ -83,14 +83,14 @@ const Carousel = ({
                 <button
                     onClick={prev}
                     className='p-2 md:p-3 rounded-full shadow-lg bg-black/30 hover:bg-[#ffe400] backdrop-blur-sm border border-white/20 hover:border-[#ffe400] transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110'
-                    aria-label="Previous slide"
+                    aria-label={t('_previousSlide')}
                 >
                     <BiChevronLeft size={32} className='text-white hover:text-black transition-colors'/>
                 </button>
                 <button
                     onClick={next}
                     className='p-2 md:p-3 rounded-full shadow-lg bg-black/30 hover:bg-[#ffe400] backdrop-blur-sm border border-white/20 hover:border-[#ffe400] transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110'
-                    aria-label="Next slide"
+                    aria-label={t('_nextSlide')}
                 >
                     <BiChevronRight size={32} className='text-white hover:text-black transition-colors'/>
                 </button>
@@ -108,7 +108,7 @@ const Carousel = ({
                                     ? "w-8 md:w-12 h-2 md:h-2.5 bg-[#ffe400]"
                                     : "w-2 md:w-3 h-2 md:h-2.5 bg-white/50 hover:bg-white/80"
                             }`}
-                            aria-label={`Go to slide ${i + 1}`}
+                            aria-label={t('_goToSlide', { n: i + 1 })}
                         />
                     ))}
                 </div>

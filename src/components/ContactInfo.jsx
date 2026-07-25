@@ -9,13 +9,13 @@ const ContactInfo = () => {
   const contactDetails = [
     {
       icon: <FaClock />,
-      title: 'Working Hours',
-      details: ['Monday - Friday', '09:00 - 18:00'],
+      title: t('_workingHoursTitle'),
+      details: [t('_workingHoursDay'), t('_workingHoursTime')],
       color: '#ffe400'
     },
     {
       icon: <FaPhone />,
-      title: 'Phone Numbers',
+      title: t('_phoneNumbersTitle'),
       details: [
         { text: '+373 79 73 16 88', link: 'tel:+37379731688', icon: <FaViber /> },
         { text: '+373 68 52 87 23', link: 'tel:+37368528723', icon: <FaViber /> }
@@ -24,7 +24,7 @@ const ContactInfo = () => {
     },
     {
       icon: <FaEnvelope />,
-      title: 'Email Addresses',
+      title: t('_emailAddressesTitle'),
       details: [
         { text: 'flexprintgroup@gmail.com', link: 'mailto:flexprintgroup@gmail.com' },
         { text: 'beresteanstefan@gmail.com', link: 'mailto:beresteanstefan@gmail.com' }
@@ -33,8 +33,8 @@ const ContactInfo = () => {
     },
     {
       icon: <FaMapMarkerAlt />,
-      title: 'Our Location',
-      details: ['Strada Socoleni 7/2', 'Chișinău, Moldova'],
+      title: t('_ourLocationTitle'),
+      details: [t('_addressLine1'), t('_addressLine2')],
       color: '#ffe400'
     }
   ]
@@ -99,7 +99,7 @@ const ContactInfo = () => {
         className='md:col-span-2 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-2xl p-6 md:p-8 border border-[#333333]'
       >
         <h3 className='text-xl md:text-2xl font-bold text-white mb-6 text-center'>
-          Connect With Us on Social Media
+          {t('_connectSocialTitle')}
         </h3>
         <div className='flex flex-wrap justify-center gap-4'>
           {socialMedia.map((social, index) => (

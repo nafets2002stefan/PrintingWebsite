@@ -51,7 +51,7 @@ const Footer = () => {
 
                         {/* Social Media */}
                         <div className='mb-6'>
-                            <h4 className='text-white font-bold mb-4 text-sm uppercase tracking-wider'>Follow Us</h4>
+                            <h4 className='text-white font-bold mb-4 text-sm uppercase tracking-wider'>{t('_followUs')}</h4>
                             <div className='flex gap-3'>
                                 {socialMedia.map((social, index) => (
                                     <motion.a
@@ -72,7 +72,7 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div className='lg:col-span-3'>
-                        <h3 className='text-white font-bold mb-6 text-sm uppercase tracking-wider'>Quick Links</h3>
+                        <h3 className='text-white font-bold mb-6 text-sm uppercase tracking-wider'>{t('_quickLinks')}</h3>
                         <ul className='space-y-3'>
                             {footerLinks[t('_company')].map((link, index) => (
                                 <li key={index}>
@@ -92,7 +92,7 @@ const Footer = () => {
 
                     {/* Contact Info */}
                     <div className='lg:col-span-5'>
-                        <h3 className='text-white font-bold mb-6 text-sm uppercase tracking-wider'>Contact Info</h3>
+                        <h3 className='text-white font-bold mb-6 text-sm uppercase tracking-wider'>{t('_contactInfoTitle')}</h3>
                         <ul className='space-y-4'>
                             {contactInfo.map((item, index) => (
                                 <li key={index}>
@@ -111,8 +111,8 @@ const Footer = () => {
 
                         {/* Working Hours */}
                         <div className='mt-6 p-4 bg-[#1a1a1a] rounded-xl border border-[#333333]'>
-                            <p className='text-white font-semibold text-sm mb-2'>Working Hours</p>
-                            <p className='text-[#a0a0a0] text-sm'>Monday - Friday: 09:00 - 18:00</p>
+                            <p className='text-white font-semibold text-sm mb-2'>{t('_workingHoursTitle')}</p>
+                            <p className='text-[#a0a0a0] text-sm'>{t('_workingHoursDay')}: {t('_workingHoursTime')}</p>
                         </div>
                     </div>
                 </div>
@@ -121,11 +121,18 @@ const Footer = () => {
                 <div className='mt-12 pt-8 border-t border-[#333333]'>
                     <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
                         <p className='text-[#666666] text-sm text-center md:text-left'>
-                            © {new Date().getFullYear()} FlexPrint. All rights reserved.
+                            © {new Date().getFullYear()} FlexPrint. {t('_allRightsReserved')}
                         </p>
                         <p className='text-[#666666] text-sm flex items-center gap-2'>
                             {t('_createdBy')}
-                            <span className='text-[#ffe400] font-semibold'>Stefan Berestean</span>
+                            <a
+                                href='https://fosant.net/ro'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-[#ffe400] font-semibold hover:underline'
+                            >
+                                fosant.net
+                            </a>
                             <FaHeart className='text-red-500 text-xs animate-pulse' />
                         </p>
                     </div>

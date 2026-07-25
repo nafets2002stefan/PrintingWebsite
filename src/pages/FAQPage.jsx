@@ -10,8 +10,8 @@ function FAQPage() {
     <main className='relative min-h-screen overflow-x-hidden default-bg'>
       <PageHeader
         title={t('_FAQ')}
-        subtitle="Find answers to commonly asked questions about our services and processes"
-        breadcrumbs={['Home', 'FAQ']}
+        subtitle={t('_faqPageSubtitle')}
+        breadcrumbs={[t('_home'), t('_FAQ')]}
       />
       <FAQ/>
     </main>
